@@ -1,497 +1,401 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Urban Achievers S.A. | Film Production Paraguay</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Bebas+Neue&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --black:#080808; --deep:#0d0d0d; --surface:#141414; --border:#1e1e1e;
-            --text:#d9d4c7; --muted:#5a5448; --gold:#c8a96e; --gold-dim:#7a6541;
-            --red:#8b1a1a; --red-hot:#c0392b;
-        }
-        *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-        html{scroll-behavior:smooth;}
-        body{background:var(--black);color:var(--text);font-family:'Crimson Pro',Georgia,serif;overflow-x:hidden;}
-        body::before{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:.035;
-            background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-            background-size:256px 256px;animation:grain .4s steps(1) infinite;}
-        @keyframes grain{0%{transform:translate(0,0)}10%{transform:translate(-2%,-3%)}20%{transform:translate(3%,2%)}30%{transform:translate(-1%,4%)}40%{transform:translate(2%,-2%)}50%{transform:translate(-3%,1%)}60%{transform:translate(1%,-4%)}70%{transform:translate(-2%,3%)}80%{transform:translate(3%,-1%)}90%{transform:translate(-1%,2%)}100%{transform:translate(2%,-3%)}}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Urban Achievers S.A. | Film Production Paraguay</title>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..800;1,6..72,300..800&family=Noto+Serif:ital,wght@0,300;0,400;1,300;1,400&family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --obsidian:#0A0A0B; --deep:#131314; --surface:#1C1B1C; --high:#2A2A2B;
+  --border:rgba(245,242,237,0.08); --border-md:rgba(245,242,237,0.15);
+  --crimson:#8B0000; --amber:#C8920A; --slate:#4A5568;
+  --light:#F5F2ED; --muted:rgba(245,242,237,0.42); --dim:rgba(245,242,237,0.15);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--obsidian);color:var(--light);font-family:'Noto Serif',Georgia,serif;overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+body::before{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:.045;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size:200px;animation:grain .35s steps(1) infinite;}
+@keyframes grain{0%{transform:translate(0,0)}20%{transform:translate(-3%,2%)}40%{transform:translate(2%,-3%)}60%{transform:translate(-1%,3%)}80%{transform:translate(3%,-1%)}100%{transform:translate(-2%,2%)}}
 
-        /* NAV */
-        nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:1.5rem 3rem;background:linear-gradient(to bottom,rgba(8,8,8,.95),transparent);}
-        .nav-logo{font-family:'Cinzel',serif;font-size:.7rem;letter-spacing:.4em;color:var(--text);text-decoration:none;}
-        .nav-logo span{color:var(--gold);}
-        .nav-right{display:flex;align-items:center;gap:2rem;}
-        .nav-links{display:flex;gap:2rem;list-style:none;}
-        .nav-links a{font-family:'Cinzel',serif;font-size:.55rem;letter-spacing:.35em;color:var(--muted);text-decoration:none;text-transform:uppercase;transition:color .3s;}
-        .nav-links a:hover{color:var(--gold);}
-        .lang-toggle{font-family:'Cinzel',serif;font-size:.55rem;letter-spacing:.25em;color:var(--muted);background:none;border:1px solid var(--border);padding:.35rem .75rem;cursor:pointer;transition:color .3s,border-color .3s;text-transform:uppercase;}
-        .lang-toggle:hover{color:var(--gold);border-color:var(--gold-dim);}
+.lbl{font-family:'Space Grotesk',sans-serif;font-size:.58rem;letter-spacing:.35em;text-transform:uppercase;color:var(--muted);}
+.lbl-amber{font-family:'Space Grotesk',sans-serif;font-size:.58rem;letter-spacing:.35em;text-transform:uppercase;color:var(--amber);}
+.sec-num{font-family:'Space Grotesk',sans-serif;font-size:.55rem;letter-spacing:.4em;color:var(--amber);text-transform:uppercase;display:block;margin-bottom:.75rem;}
 
-        /* HERO */
-        #hero{height:100vh;min-height:700px;position:relative;display:flex;flex-direction:column;justify-content:flex-end;padding:0 3rem 5rem;overflow:hidden;}
-        .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 70% 40%,rgba(139,26,26,.12) 0%,transparent 70%),radial-gradient(ellipse 40% 60% at 20% 70%,rgba(200,169,110,.04) 0%,transparent 60%),url('https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&q=80&w=1920') center/cover no-repeat;filter:brightness(.25) contrast(1.2);}
-        .hero-eyebrow{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.5em;color:var(--gold);text-transform:uppercase;margin-bottom:1.5rem;opacity:0;animation:fadeUp 1s ease forwards .3s;}
-        .hero-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(4rem,10vw,9rem);line-height:.9;letter-spacing:.02em;color:var(--text);position:relative;z-index:1;opacity:0;animation:fadeUp 1s ease forwards .5s;}
-        .hero-title .stroke-text{-webkit-text-stroke:1px var(--gold-dim);color:transparent;}
-        .hero-subtitle{font-family:'Crimson Pro',serif;font-style:italic;font-size:1.25rem;color:var(--muted);margin-top:1.5rem;max-width:480px;line-height:1.6;opacity:0;animation:fadeUp 1s ease forwards .7s;}
-        .hero-cta{display:inline-flex;align-items:center;gap:1rem;margin-top:2.5rem;font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.4em;color:var(--text);text-decoration:none;text-transform:uppercase;border-bottom:1px solid var(--gold-dim);padding-bottom:.5rem;transition:color .3s,border-color .3s;opacity:0;animation:fadeUp 1s ease forwards .9s;}
-        .hero-cta::after{content:'→';transition:transform .3s;}
-        .hero-cta:hover{color:var(--gold);border-color:var(--gold);}
-        .hero-cta:hover::after{transform:translateX(6px);}
-        .hero-scroll-line{position:absolute;bottom:2rem;right:3rem;display:flex;flex-direction:column;align-items:center;gap:.75rem;font-family:'Cinzel',serif;font-size:.5rem;letter-spacing:.3em;color:var(--muted);writing-mode:vertical-rl;}
-        .hero-scroll-line::before{content:'';width:1px;height:60px;background:linear-gradient(to bottom,transparent,var(--muted));}
-        @keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:1.25rem 3rem;background:rgba(10,10,11,.93);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);}
+.nav-logo{font-family:'Newsreader',serif;font-style:italic;font-weight:700;font-size:1.1rem;color:var(--crimson);text-decoration:none;}
+.nav-right{display:flex;align-items:center;gap:2rem;}
+.nav-links{display:flex;gap:2.5rem;list-style:none;}
+.nav-links a{font-family:'Space Grotesk',sans-serif;font-size:.58rem;letter-spacing:.3em;color:var(--muted);text-decoration:none;text-transform:uppercase;transition:color .25s;}
+.nav-links a:hover{color:var(--amber);}
+#langBtn{font-family:'Space Grotesk',sans-serif;font-size:.55rem;letter-spacing:.3em;color:var(--muted);background:none;border:1px solid var(--border-md);padding:.35rem .8rem;cursor:pointer;text-transform:uppercase;transition:color .25s,border-color .25s;}
+#langBtn:hover{color:var(--amber);border-color:var(--amber);}
 
-        section{position:relative;}
-        .section-label{font-family:'Cinzel',serif;font-size:.55rem;letter-spacing:.6em;color:var(--gold);text-transform:uppercase;display:block;margin-bottom:4rem;}
+#hero{min-height:100vh;display:grid;grid-template-rows:1fr auto;position:relative;overflow:hidden;}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 50% 70% at 75% 40%,rgba(139,0,0,.18) 0%,transparent 65%),url('https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&q=80&w=1920') center/cover no-repeat;filter:brightness(.18) contrast(1.3) grayscale(.4);}
+.hero-content{position:relative;z-index:2;display:flex;flex-direction:column;justify-content:flex-end;padding:8rem 3rem 4rem;max-width:1400px;width:100%;margin:0 auto;}
+.hero-id{display:flex;align-items:center;gap:1.5rem;margin-bottom:2rem;}
+.hero-id-line{width:40px;height:1px;background:var(--amber);}
+.hero-title{font-family:'Newsreader',serif;font-style:italic;font-weight:800;font-size:clamp(4.5rem,11vw,10rem);line-height:.88;letter-spacing:-.02em;color:var(--light);margin-bottom:2rem;}
+.hero-title .stroke{-webkit-text-stroke:1px rgba(200,146,10,.45);color:transparent;}
+.hero-sub{font-family:'Noto Serif',serif;font-size:1rem;font-style:italic;color:var(--muted);max-width:520px;line-height:1.8;margin-bottom:2.5rem;}
+.hero-cta{display:inline-flex;align-items:center;gap:.75rem;font-family:'Space Grotesk',sans-serif;font-size:.58rem;letter-spacing:.4em;text-transform:uppercase;color:var(--light);text-decoration:none;border-bottom:1px solid var(--amber);padding-bottom:.4rem;transition:color .3s;}
+.hero-cta:hover{color:var(--amber);}
+.hero-meta{position:relative;z-index:2;display:flex;justify-content:space-between;align-items:center;padding:1.1rem 3rem;border-top:1px solid var(--border);background:rgba(10,10,11,.65);backdrop-filter:blur(6px);}
 
-        /* FEATURE */
-        #feature{background:var(--deep);padding:7rem 3rem;overflow:hidden;}
-        .feature-inner{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center;}
-        .feature-poster{position:relative;aspect-ratio:2/3;max-width:400px;}
-        .feature-poster-frame{width:100%;height:100%;background:var(--surface);border:1px solid var(--border);overflow:hidden;}
-        .feature-poster-frame img{width:100%;height:100%;object-fit:cover;filter:grayscale(60%) contrast(1.1);transition:filter .8s;}
-        .feature-poster:hover .feature-poster-frame img{filter:grayscale(0%);}
-        .feature-poster::before{content:'';position:absolute;top:12px;left:12px;right:-12px;bottom:-12px;border:1px solid var(--red);z-index:-1;transition:transform .4s;}
-        .feature-poster:hover::before{transform:translate(-4px,-4px);}
-        .feature-badge{position:absolute;top:1.5rem;right:-1rem;background:var(--red);color:#fff;font-family:'Cinzel',serif;font-size:.5rem;letter-spacing:.3em;padding:.5rem 1rem;text-transform:uppercase;z-index:2;}
-        .feature-content h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(3.5rem,6vw,6rem);letter-spacing:.06em;line-height:.95;color:var(--text);margin-bottom:1.5rem;}
-        .feature-content h2 em{display:block;-webkit-text-stroke:1px var(--red);color:transparent;font-style:normal;}
-        .feature-meta{display:flex;gap:2rem;margin-bottom:2rem;flex-wrap:wrap;}
-        .feature-meta-item{display:flex;flex-direction:column;gap:.25rem;}
-        .feature-meta-item .label{font-family:'Cinzel',serif;font-size:.5rem;letter-spacing:.3em;color:var(--gold);text-transform:uppercase;}
-        .feature-meta-item .value{font-size:.95rem;color:var(--text);}
-        .feature-synopsis{font-size:1.1rem;line-height:1.75;color:var(--muted);margin-bottom:2.5rem;font-style:italic;max-width:500px;}
-        .feature-date-countdown{display:inline-flex;align-items:center;gap:.75rem;font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.3em;color:var(--red-hot);text-transform:uppercase;border:1px solid var(--red);padding:.75rem 1.5rem;}
-        .feature-date-countdown::before{content:'▶';font-size:.6em;}
+#feature{background:var(--deep);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+.feature-inner{max-width:1400px;margin:0 auto;padding:6rem 3rem;display:grid;grid-template-columns:340px 1fr;gap:6rem;align-items:center;}
+.poster-wrap{position:relative;}
+.poster-frame{aspect-ratio:2/3;background:var(--surface);border:1px solid var(--border);overflow:hidden;position:relative;}
+.poster-frame img{width:100%;height:100%;object-fit:cover;filter:grayscale(50%) contrast(1.1) brightness(.75);transition:filter .8s;}
+.poster-wrap:hover .poster-frame img{filter:grayscale(10%) brightness(.85);}
+.poster-badge{position:absolute;top:0;right:0;background:var(--crimson);font-family:'Space Grotesk',sans-serif;font-size:.48rem;letter-spacing:.3em;text-transform:uppercase;padding:.5rem 1rem;color:var(--light);}
+.poster-offset{position:absolute;top:10px;left:-10px;right:10px;bottom:-10px;border:1px solid var(--crimson);z-index:-1;transition:transform .4s;}
+.poster-wrap:hover .poster-offset{transform:translate(4px,-4px);}
+.feat-title{font-family:'Newsreader',serif;font-style:italic;font-weight:800;font-size:clamp(3.5rem,7vw,7rem);line-height:.9;letter-spacing:-.02em;color:var(--light);margin:1.5rem 0;}
+.feat-title em{font-style:normal;-webkit-text-stroke:1px rgba(139,0,0,.65);color:transparent;}
+.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;padding:1.75rem 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin-bottom:1.75rem;}
+.fg-val{font-family:'Noto Serif',serif;font-size:.92rem;color:var(--light);margin-top:.3rem;}
+.feat-syn{font-family:'Noto Serif',serif;font-style:italic;font-size:1rem;line-height:1.8;color:var(--muted);margin-bottom:2rem;}
+.shoot-date{display:inline-flex;align-items:center;gap:.75rem;font-family:'Space Grotesk',sans-serif;font-size:.58rem;letter-spacing:.3em;text-transform:uppercase;color:var(--crimson);border:1px solid rgba(139,0,0,.4);padding:.7rem 1.5rem;}
 
-        /* SLATE */
-        #slate{padding:7rem 3rem;background:var(--black);}
-        .slate-inner{max-width:1400px;margin:0 auto;}
-        .slate-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:4rem;border-bottom:1px solid var(--border);padding-bottom:2rem;}
-        .slate-header h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,4vw,3.5rem);letter-spacing:.1em;color:var(--text);line-height:1;}
-        .slate-header h2 span{color:var(--gold);}
-        .slate-count{font-family:'Cinzel',serif;font-size:.55rem;letter-spacing:.3em;color:var(--muted);}
-        .films-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;}
-        .film-card{position:relative;cursor:pointer;}
-        .film-card-poster{aspect-ratio:2/3;background:var(--surface);border:1px solid var(--border);overflow:hidden;position:relative;margin-bottom:1rem;}
-        .film-card-poster img{width:100%;height:100%;object-fit:cover;filter:grayscale(100%) brightness(.7);transition:all .7s ease;}
-        .film-card:hover .film-card-poster img{filter:grayscale(20%) brightness(.9);transform:scale(1.04);}
-        .film-card-poster-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(8,8,8,.8) 0%,transparent 50%);opacity:0;transition:opacity .5s;display:flex;align-items:flex-end;padding:1.5rem;}
-        .film-card:hover .film-card-poster-overlay{opacity:1;}
-        .film-card-poster-tag{font-family:'Cinzel',serif;font-size:.5rem;letter-spacing:.3em;color:var(--gold);text-transform:uppercase;border:1px solid var(--gold-dim);padding:.25rem .6rem;}
-        .film-card-title{font-family:'Cinzel',serif;font-size:.8rem;letter-spacing:.1em;color:var(--text);margin-bottom:.35rem;}
-        .film-card-meta{font-size:.75rem;color:var(--muted);}
-        .film-card-role{color:var(--gold-dim);}
+#slate{padding:6rem 3rem;background:var(--obsidian);}
+.sec-inner{max-width:1400px;margin:0 auto;}
+.sec-hdr{display:flex;justify-content:space-between;align-items:flex-end;padding-bottom:2rem;border-bottom:1px solid var(--border);margin-bottom:3rem;}
+.sec-hdr h2{font-family:'Newsreader',serif;font-style:italic;font-weight:700;font-size:clamp(2rem,4vw,3.5rem);letter-spacing:-.02em;line-height:1;color:var(--light);}
+.sec-hdr h2 span{color:var(--amber);}
+.films-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);}
+.film-card{background:var(--obsidian);cursor:pointer;transition:background .3s;}
+.film-card:hover{background:var(--deep);}
+.fc-poster{aspect-ratio:2/3;overflow:hidden;position:relative;}
+.fc-poster img{width:100%;height:100%;object-fit:cover;filter:grayscale(100%) brightness(.6);transition:all .7s;}
+.film-card:hover .fc-poster img{filter:grayscale(25%) brightness(.8);transform:scale(1.04);}
+.fc-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,10,11,.9) 0%,transparent 55%);opacity:0;transition:opacity .5s;display:flex;align-items:flex-end;padding:1.25rem;}
+.film-card:hover .fc-overlay{opacity:1;}
+.fc-tag{font-family:'Space Grotesk',sans-serif;font-size:.44rem;letter-spacing:.3em;text-transform:uppercase;color:var(--amber);border:1px solid rgba(200,146,10,.4);padding:.2rem .55rem;}
+.fc-info{padding:1.25rem;border-top:1px solid var(--border);}
+.fc-title{font-family:'Newsreader',serif;font-style:italic;font-size:.95rem;font-weight:700;color:var(--light);margin-bottom:.3rem;}
+.fc-meta{font-family:'Space Grotesk',sans-serif;font-size:.52rem;letter-spacing:.18em;color:var(--muted);text-transform:uppercase;}
+.fc-role{color:var(--amber);}
+.fc-dir{font-family:'Space Grotesk',sans-serif;font-size:.48rem;color:var(--dim);text-transform:uppercase;letter-spacing:.15em;margin-top:.2rem;}
 
-        /* MISSION */
-        #mission{padding:7rem 3rem;background:var(--deep);}
-        .mission-inner{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:8rem;align-items:start;}
-        .mission-quote{font-family:'Crimson Pro',serif;font-size:clamp(1.8rem,3vw,2.8rem);font-style:italic;font-weight:300;line-height:1.4;color:var(--text);position:relative;padding-left:2rem;}
-        .mission-quote::before{content:'';position:absolute;left:0;top:.3em;bottom:.3em;width:2px;background:linear-gradient(to bottom,var(--gold),transparent);}
-        .mission-body p{font-size:1.05rem;line-height:1.85;color:var(--muted);margin-bottom:1.5rem;}
-        .mission-stats{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:3rem;padding-top:3rem;border-top:1px solid var(--border);}
-        .stat-item .stat-number{font-family:'Bebas Neue',sans-serif;font-size:3rem;letter-spacing:.05em;color:var(--gold);line-height:1;}
-        .stat-item .stat-label{font-family:'Cinzel',serif;font-size:.5rem;letter-spacing:.3em;color:var(--muted);text-transform:uppercase;margin-top:.5rem;}
-        .advantages-list{margin-top:2rem;display:flex;flex-direction:column;gap:1rem;}
-        .advantage-item{display:flex;align-items:center;gap:1rem;font-size:.9rem;color:var(--muted);}
-        .advantage-item::before{content:'';width:24px;height:1px;background:var(--gold);flex-shrink:0;}
-        .advantage-item strong{color:var(--text);}
+#development{padding:6rem 3rem;background:var(--deep);}
+.dev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);margin-bottom:1px;}
+.dev-card{background:var(--deep);padding:2rem;transition:background .3s;}
+.dev-card:hover{background:var(--surface);}
+.dev-hdr{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1.25rem;}
+.gp{font-family:'Space Grotesk',sans-serif;font-size:.44rem;letter-spacing:.3em;text-transform:uppercase;padding:.22rem .55rem;border:1px solid;}
+.gp-h{color:var(--crimson);border-color:rgba(139,0,0,.45);}
+.gp-o{color:var(--amber);border-color:rgba(200,146,10,.4);}
+.dev-title{font-family:'Newsreader',serif;font-style:italic;font-size:1.05rem;font-weight:700;color:var(--light);margin-bottom:.45rem;}
+.dev-desc{font-family:'Noto Serif',serif;font-size:.8rem;color:var(--muted);font-style:italic;line-height:1.6;}
+.doc-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);margin-bottom:3rem;}
+.doc-card{background:var(--deep);padding:1.5rem 2rem;transition:background .3s;}
+.doc-card:hover{background:var(--surface);}
+.doc-title{font-family:'Newsreader',serif;font-style:italic;font-size:.95rem;color:var(--light);margin:.5rem 0 .25rem;}
+.doc-desc{font-family:'Space Grotesk',sans-serif;font-size:.48rem;letter-spacing:.2em;color:var(--muted);text-transform:uppercase;}
+.vert-strip{display:flex;justify-content:space-between;align-items:center;padding:1.5rem 0;border-top:1px solid var(--border);}
+.inq-link{font-family:'Space Grotesk',sans-serif;font-size:.55rem;letter-spacing:.35em;text-transform:uppercase;color:var(--amber);text-decoration:none;border-bottom:1px solid rgba(200,146,10,.35);padding-bottom:.25rem;flex-shrink:0;margin-left:3rem;transition:color .3s;}
+.inq-link:hover{color:var(--light);}
 
-        /* TEAM */
-        #team{padding:7rem 3rem;background:var(--black);}
-        .team-inner{max-width:1400px;margin:0 auto;}
-        .team-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:5rem;border-bottom:1px solid var(--border);padding-bottom:2rem;}
-        .team-header h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,4vw,3.5rem);letter-spacing:.1em;color:var(--text);}
-        .team-header h2 span{color:var(--gold);}
-        .principals-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-bottom:5rem;}
-        .principal-card{background:var(--surface);padding:3rem;display:flex;gap:2.5rem;align-items:flex-start;border:1px solid var(--border);transition:border-color .4s;}
-        .principal-card:hover{border-color:var(--gold-dim);}
-        .principal-photo{width:100px;height:120px;background:var(--border);overflow:hidden;flex-shrink:0;border:1px solid var(--border);}
-        .principal-photo img{width:100%;height:100%;object-fit:cover;filter:grayscale(80%);transition:filter .5s;}
-        .principal-card:hover .principal-photo img{filter:grayscale(0%);}
-        .principal-info h3{font-family:'Cinzel',serif;font-size:1rem;letter-spacing:.1em;color:var(--text);margin-bottom:.5rem;}
-        .principal-role{font-family:'Cinzel',serif;font-size:.5rem;letter-spacing:.3em;color:var(--gold);text-transform:uppercase;margin-bottom:1rem;}
-        .principal-bio{font-size:.9rem;line-height:1.7;color:var(--muted);font-style:italic;}
-        .crew-section{border-top:1px solid var(--border);padding-top:3rem;}
-        .crew-label{font-family:'Cinzel',serif;font-size:.5rem;letter-spacing:.5em;color:var(--muted);text-transform:uppercase;margin-bottom:2.5rem;}
-        .crew-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;}
-        .crew-item .crew-name{font-family:'Crimson Pro',serif;font-size:.95rem;color:var(--text);margin-bottom:.2rem;}
-        .crew-item .crew-dept{font-family:'Cinzel',serif;font-size:.45rem;letter-spacing:.25em;color:var(--muted);text-transform:uppercase;}
+#mission{padding:6rem 3rem;background:var(--obsidian);}
+.mission-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:8rem;align-items:start;}
+.mission-sticky{position:sticky;top:7rem;}
+.mission-quote{font-family:'Newsreader',serif;font-style:italic;font-size:clamp(1.75rem,3vw,2.5rem);font-weight:300;line-height:1.35;color:var(--light);padding-left:1.5rem;border-left:2px solid var(--crimson);margin:1.5rem 0 2.5rem;}
+.stats-box{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--border);}
+.stat-cell{padding:1.5rem;border-right:1px solid var(--border);border-bottom:1px solid var(--border);}
+.stat-cell:nth-child(2n){border-right:none;}
+.stat-cell:nth-last-child(-n+2){border-bottom:none;}
+.stat-n{font-family:'Newsreader',serif;font-style:italic;font-weight:700;font-size:2.25rem;color:var(--amber);line-height:1;margin-bottom:.3rem;}
+.mission-body p{font-family:'Noto Serif',serif;font-size:1rem;line-height:1.85;color:rgba(245,242,237,.62);margin-bottom:1.5rem;}
+.mission-body p:first-child{color:var(--light);}
+.mission-body p em{font-style:italic;color:var(--light);}
 
-        /* CONTACT */
-        #contact{padding:7rem 3rem;background:var(--deep);}
-        .contact-inner{max-width:1400px;margin:0 auto;}
-        .contact-top{display:grid;grid-template-columns:1fr 2fr;gap:6rem;align-items:start;margin-bottom:5rem;padding-bottom:5rem;border-bottom:1px solid var(--border);}
-        .contact-heading h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,5vw,5rem);letter-spacing:.08em;line-height:.95;color:var(--text);margin-bottom:1.5rem;}
-        .contact-heading h2 em{display:block;-webkit-text-stroke:1px var(--gold-dim);color:transparent;font-style:normal;}
-        .contact-heading p{font-size:1rem;line-height:1.75;color:var(--muted);}
-        .contact-form{display:flex;flex-direction:column;gap:1.25rem;}
-        .form-row{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;}
-        .form-field{display:flex;flex-direction:column;gap:.5rem;}
-        .form-field label{font-family:'Cinzel',serif;font-size:.5rem;letter-spacing:.35em;color:var(--muted);text-transform:uppercase;}
-        .form-field input,.form-field textarea{background:var(--surface);border:1px solid var(--border);color:var(--text);font-family:'Crimson Pro',serif;font-size:.95rem;padding:.85rem 1rem;outline:none;transition:border-color .3s;width:100%;resize:vertical;}
-        .form-field input::placeholder,.form-field textarea::placeholder{color:var(--muted);}
-        .form-field input:focus,.form-field textarea:focus{border-color:var(--gold-dim);}
-        .form-submit{background:transparent;border:1px solid var(--gold-dim);color:var(--gold);font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.4em;text-transform:uppercase;padding:1.1rem 2rem;cursor:pointer;transition:background .4s,color .4s;margin-top:.25rem;}
-        .form-submit:hover{background:var(--gold);color:var(--black);}
+#team{padding:6rem 3rem;background:var(--deep);}
+.principals-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);margin-bottom:1px;}
+.p-card{background:var(--deep);padding:3rem;display:flex;gap:2.5rem;align-items:flex-start;transition:background .3s;}
+.p-card:hover{background:var(--surface);}
+.p-photo{width:88px;height:108px;background:var(--surface);border:1px solid var(--border);overflow:hidden;flex-shrink:0;}
+.p-photo img{width:100%;height:100%;object-fit:cover;filter:grayscale(80%);transition:filter .5s;}
+.p-card:hover .p-photo img{filter:grayscale(0%);}
+.p-name{font-family:'Newsreader',serif;font-style:italic;font-weight:700;font-size:1.15rem;color:var(--light);margin-bottom:.35rem;}
+.p-role{margin-bottom:.7rem;}
+.p-bio{font-family:'Noto Serif',serif;font-size:.85rem;line-height:1.75;color:var(--muted);font-style:italic;}
+.crew-sec{background:var(--obsidian);border:1px solid var(--border);border-top:none;padding:3rem;}
+.crew-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem 1rem;margin-top:1.75rem;}
+.c-name{font-family:'Noto Serif',serif;font-size:.9rem;color:var(--light);margin-bottom:.2rem;}
+.support-blk{margin-top:1px;background:var(--surface);border:1px solid var(--border);border-top:none;padding:2.5rem 3rem;display:flex;gap:4rem;align-items:flex-start;}
+.support-txt{font-family:'Noto Serif',serif;font-size:.95rem;line-height:1.8;color:var(--muted);font-style:italic;max-width:720px;}
 
-        /* SUBSCRIBE */
-        .subscribe-strip{display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center;}
-        .subscribe-heading h3{font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,3vw,3rem);letter-spacing:.1em;color:var(--text);margin-bottom:.75rem;}
-        .subscribe-heading h3 span{color:var(--gold);}
-        .subscribe-heading p{font-size:.95rem;color:var(--muted);line-height:1.6;}
-        .subscribe-form{display:flex;}
-        .subscribe-form input{flex:1;background:var(--surface);border:1px solid var(--border);border-right:none;color:var(--text);font-family:'Crimson Pro',serif;font-size:.95rem;padding:.9rem 1.25rem;outline:none;transition:border-color .3s;}
-        .subscribe-form input::placeholder{color:var(--muted);}
-        .subscribe-form input:focus{border-color:var(--gold-dim);}
-        .subscribe-form button{background:transparent;border:1px solid var(--gold-dim);color:var(--gold);font-family:'Cinzel',serif;font-size:.55rem;letter-spacing:.35em;text-transform:uppercase;padding:.9rem 1.5rem;cursor:pointer;white-space:nowrap;transition:background .4s,color .4s;}
-        .subscribe-form button:hover{background:var(--gold);color:var(--black);}
+#contact{padding:6rem 3rem;background:var(--obsidian);}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);}
+.c-panel{background:var(--obsidian);padding:4rem;}
+.c-panel+.c-panel{background:var(--deep);}
+.c-panel h2{font-family:'Newsreader',serif;font-style:italic;font-weight:700;font-size:clamp(2.5rem,4vw,3.75rem);line-height:.9;letter-spacing:-.02em;color:var(--light);margin:.85rem 0 .7rem;}
+.c-panel h2 em{font-style:normal;-webkit-text-stroke:1px rgba(200,146,10,.45);color:transparent;}
+.c-desc{font-family:'Noto Serif',serif;font-style:italic;font-size:.95rem;color:var(--muted);line-height:1.75;margin-bottom:2.5rem;}
+.ff{display:flex;flex-direction:column;gap:.45rem;margin-bottom:1.25rem;}
+.ff label{font-family:'Space Grotesk',sans-serif;font-size:.55rem;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);}
+.ff input,.ff textarea{background:transparent;border:none;border-bottom:1px solid rgba(245,242,237,.18);color:var(--light);font-family:'Noto Serif',serif;font-size:.9rem;padding:.7rem 0;outline:none;transition:border-color .3s;width:100%;resize:vertical;}
+.ff input:focus,.ff textarea:focus{border-bottom-color:var(--amber);}
+.ff input::placeholder,.ff textarea::placeholder{color:var(--dim);font-style:italic;}
+.f-btn{background:transparent;border:1px solid rgba(200,146,10,.4);color:var(--amber);font-family:'Space Grotesk',sans-serif;font-size:.58rem;letter-spacing:.4em;text-transform:uppercase;padding:1.1rem 2rem;cursor:pointer;transition:background .3s,color .3s;width:100%;margin-top:.5rem;}
+.f-btn:hover{background:var(--amber);color:var(--obsidian);}
+.consent-row{display:flex;align-items:flex-start;gap:.75rem;margin-bottom:1.25rem;}
+.consent-row input[type="checkbox"]{margin-top:3px;flex-shrink:0;accent-color:var(--amber);}
+.consent-lbl{font-family:'Noto Serif',serif;font-style:italic;font-size:.8rem;color:var(--muted);line-height:1.6;cursor:pointer;}
+.find-us{margin-top:3rem;padding-top:2rem;border-top:1px solid var(--border);}
+.fu-name{font-family:'Newsreader',serif;font-style:italic;font-size:.95rem;color:var(--light);margin-top:.6rem;}
+.fu-email{font-family:'Space Grotesk',sans-serif;font-size:.65rem;letter-spacing:.15em;color:var(--amber);margin-top:.25rem;}
 
-        /* FOOTER */
-        footer{background:var(--black);padding:3rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;}
-        .footer-logo{font-family:'Cinzel',serif;font-size:.65rem;letter-spacing:.4em;color:var(--text);}
-        .footer-logo span{color:var(--gold);}
-        .footer-text{font-family:'Cinzel',serif;font-size:.5rem;letter-spacing:.35em;color:var(--muted);text-align:center;}
-        .footer-quote{font-family:'Crimson Pro',serif;font-style:italic;font-size:.85rem;color:var(--muted);}
+footer{background:var(--obsidian);border-top:1px solid var(--border);padding:2.25rem 3rem;display:flex;justify-content:space-between;align-items:center;}
+.f-logo{font-family:'Newsreader',serif;font-style:italic;font-weight:700;font-size:.95rem;color:var(--crimson);}
+.f-quote{font-family:'Noto Serif',serif;font-style:italic;font-size:.85rem;color:var(--dim);}
 
-        /* RESPONSIVE */
-        @media(max-width:1024px){
-            .films-grid{grid-template-columns:repeat(2,1fr);}
-            .mission-inner{grid-template-columns:1fr;gap:4rem;}
-            .feature-inner{grid-template-columns:1fr;}
-            .feature-poster{max-width:280px;}
-            .principals-grid{grid-template-columns:1fr;}
-            .crew-grid{grid-template-columns:repeat(3,1fr);}
-            .contact-top{grid-template-columns:1fr;gap:4rem;}
-            .subscribe-strip{grid-template-columns:1fr;gap:3rem;}
-        }
-        @media(max-width:640px){
-            nav{padding:1.25rem 1.5rem;}
-            .nav-links{display:none;}
-            #hero,#slate,#feature,#mission,#team,#contact{padding-left:1.5rem;padding-right:1.5rem;}
-            .films-grid{grid-template-columns:1fr 1fr;gap:1rem;}
-            .crew-grid{grid-template-columns:repeat(2,1fr);}
-            .form-row{grid-template-columns:1fr;}
-            .subscribe-form{flex-direction:column;}
-            .subscribe-form input{border-right:1px solid var(--border);border-bottom:none;}
-            footer{flex-direction:column;gap:1.5rem;text-align:center;}
-        }
-    </style>
+@media(max-width:1100px){.mission-grid{grid-template-columns:1fr;gap:3rem;}.mission-sticky{position:static;}.feature-inner{grid-template-columns:260px 1fr;gap:3.5rem;}.crew-grid{grid-template-columns:repeat(3,1fr);}}
+@media(max-width:900px){nav{padding:1.25rem 1.5rem;}.nav-links{display:none;}.feature-inner{grid-template-columns:1fr;}.dev-grid,.films-grid{grid-template-columns:repeat(2,1fr);}.principals-grid,.contact-grid{grid-template-columns:1fr;}#slate,#development,#mission,#team,#contact{padding-left:1.5rem;padding-right:1.5rem;}.hero-content{padding:7rem 1.5rem 3rem;}.hero-meta{padding:1rem 1.5rem;flex-wrap:wrap;gap:.75rem;}footer{flex-direction:column;gap:1rem;text-align:center;}.support-blk{flex-direction:column;gap:1.5rem;}.crew-grid{grid-template-columns:repeat(2,1fr);}.doc-row{grid-template-columns:1fr;}}
+@media(max-width:600px){.films-grid,.dev-grid{grid-template-columns:1fr;}.feat-grid{grid-template-columns:1fr 1fr;}.c-panel{padding:2.5rem 1.5rem;}.crew-sec,.support-blk{padding:2rem 1.5rem;}.p-card{padding:2rem 1.5rem;}}
+</style>
 </head>
 <body>
 
-    <nav>
-        <a href="#hero" class="nav-logo">URBAN <span>ACHIEVERS</span></a>
-        <div class="nav-right">
-            <ul class="nav-links">
-                <li><a href="#slate" data-i18n="nav-slate">The Slate</a></li>
-                <li><a href="#development" data-i18n="nav-dev">In Development</a></li>
-                <li><a href="#mission" data-i18n="nav-mission">Philosophy</a></li>
-                <li><a href="#team" data-i18n="nav-team">Team</a></li>
-                <li><a href="#contact" data-i18n="nav-contact">Contact</a></li>
-            </ul>
-            <button class="lang-toggle" id="langBtn" onclick="toggleLang()">ES</button>
+<nav>
+  <a href="#hero" class="nav-logo">Urban Achievers S.A.</a>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="#slate"       data-i18n="nav-slate">The Slate</a></li>
+      <li><a href="#development" data-i18n="nav-dev">In Development</a></li>
+      <li><a href="#mission"     data-i18n="nav-mission">Our Story</a></li>
+      <li><a href="#team"        data-i18n="nav-team">Team</a></li>
+      <li><a href="#contact"     data-i18n="nav-contact">Contact</a></li>
+    </ul>
+    <button id="langBtn" onclick="toggleLang()">ES</button>
+  </div>
+</nav>
+
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-id">
+      <div class="hero-id-line"></div>
+      <span class="lbl" data-i18n="hero-eyebrow">Asunción, Paraguay · Est. 2014</span>
+    </div>
+    <h1 class="hero-title">
+      <span data-i18n="hero-t1">Providing</span><br>
+      <span class="stroke" data-i18n="hero-t2">the Necessary</span><br>
+      <span data-i18n="hero-t3">Means</span>
+    </h1>
+    <p class="hero-sub" data-i18n="hero-sub">A Paraguayan production company. We develop, produce, and finance our films — from first draft to international market. Built on three decades of capital markets discipline and a lifelong obsession with cinema.</p>
+    <a href="#slate" class="hero-cta" data-i18n="hero-cta">Explore the Slate →</a>
+  </div>
+  <div class="hero-meta">
+    <span class="lbl">SUBJECT ID: UA-992-B · GENRE CINEMA · SOUTHERN CONE</span>
+    <span class="lbl" data-i18n="hero-meta">Sitges · Cannes · AFM · HBO · Sony Pictures</span>
+  </div>
+</section>
+
+<section id="feature">
+  <div class="feature-inner">
+    <div class="poster-wrap">
+      <div class="poster-frame">
+        <img src="https://images.unsplash.com/photo-1509248961158-e54f6934749c?auto=format&fit=crop&q=80&w=600" alt="Maldecidos">
+        <div class="poster-badge" data-i18n="feat-badge">Principal Photography · July 2026</div>
+      </div>
+      <div class="poster-offset"></div>
+    </div>
+    <div class="feat-content">
+      <div style="display:flex;align-items:center;gap:1.5rem;">
+        <span class="lbl-amber" data-i18n="feat-label">Next Production</span>
+        <span class="lbl">CASE FILE #001</span>
+      </div>
+      <h2 class="feat-title">Mal<em>decidos</em></h2>
+      <div class="feat-grid">
+        <div><div class="lbl" data-i18n="feat-gl">Genre</div><div class="fg-val" data-i18n="feat-gv">Horror / Supernatural Thriller</div></div>
+        <div><div class="lbl" data-i18n="feat-fl">Format</div><div class="fg-val" data-i18n="feat-fv">Feature · 90 Scenes · 23 Days</div></div>
+        <div><div class="lbl" data-i18n="feat-ml">Markets</div><div class="fg-val">Cannes · AFM · International</div></div>
+      </div>
+      <p class="feat-syn" data-i18n="feat-syn">A horror that lives in the spaces between belief and dread. Shot across twelve locations in Paraguay, Maldecidos marks Urban Achievers' most ambitious production to date — positioned for international festival markets and genre distribution.</p>
+      <div class="shoot-date" data-i18n="feat-date">▶ Shoot Date: 13 July 2026</div>
+    </div>
+  </div>
+</section>
+
+<section id="slate">
+  <div class="sec-inner">
+    <div class="sec-hdr">
+      <div><span class="sec-num">01.</span><h2><span data-i18n="slate-h1">Completed</span> <span data-i18n="slate-h2">Works</span></h2></div>
+      <span class="lbl" data-i18n="slate-ct">4 Films · 2017–2025</span>
+    </div>
+    <div class="films-grid">
+      <div class="film-card">
+        <div class="fc-poster"><img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&q=80&w=500" alt="Los Buscadores"><div class="fc-overlay"><span class="fc-tag" data-i18n="f1-tag">Oscar Submission · Paraguay</span></div></div>
+        <div class="fc-info"><div class="fc-title">Los Buscadores</div><div class="fc-meta"><span class="fc-role" data-i18n="f1-role">Exec. Producer</span> · Thriller · 2017</div><div class="fc-dir">Dir. Maneglia-Schémbori</div></div>
+      </div>
+      <div class="film-card">
+        <div class="fc-poster"><img src="https://images.unsplash.com/photo-1614846384571-1e31322f00b0?auto=format&fit=crop&q=80&w=500" alt="Morgue"><div class="fc-overlay"><span class="fc-tag">Sitges · HBO · Sony</span></div></div>
+        <div class="fc-info"><div class="fc-title">Morgue</div><div class="fc-meta"><span class="fc-role" data-i18n="f2-role">Financial Advisor</span> · Horror · 2019</div><div class="fc-dir">Dir. Hugo Cardozo</div></div>
+      </div>
+      <div class="film-card">
+        <div class="fc-poster"><img src="https://images.unsplash.com/photo-1600680759949-fe2b7a3cfc24?auto=format&fit=crop&q=80&w=500" alt="No Entres"><div class="fc-overlay"><span class="fc-tag" data-i18n="f3-tag">Cannes · Busan · International</span></div></div>
+        <div class="fc-info"><div class="fc-title">No Entres</div><div class="fc-meta"><span class="fc-role" data-i18n="f3-role">Producer / Exec. Producer</span> · Horror · 2024</div><div class="fc-dir">Dir. Hugo Cardozo</div></div>
+      </div>
+      <div class="film-card">
+        <div class="fc-poster"><img src="https://images.unsplash.com/photo-1509248961158-e54f6934749c?auto=format&fit=crop&q=80&w=500" alt="Red Book Ritual"><div class="fc-overlay"><span class="fc-tag" data-i18n="f4-tag">Horror Anthology · 2025</span></div></div>
+        <div class="fc-info"><div class="fc-title">The Red Book Ritual: Gates of Hell</div><div class="fc-meta"><span class="fc-role" data-i18n="f4-role">Producer / Exec. Producer</span> · Horror · 2025</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="development">
+  <div class="sec-inner">
+    <div class="sec-hdr">
+      <div><span class="sec-num">02.</span><h2><span data-i18n="dev-h1">In</span> <span data-i18n="dev-h2">Development</span></h2></div>
+      <span class="lbl" data-i18n="dev-ct">9 Projects + Vertical Slate</span>
+    </div>
+    <div class="dev-grid">
+      <div class="dev-card"><div class="dev-hdr"><span class="gp gp-h">Horror</span><span class="lbl" data-i18n="dev-feat">Feature</span></div><div class="dev-title">Maldecidos</div><div class="dev-desc" data-i18n="dev-mal">Supernatural thriller. Shoot: 13 July 2026. 23-day production across 12 Paraguay locations.</div></div>
+      <div class="dev-card"><div class="dev-hdr"><span class="gp gp-o" data-i18n="gen-com">Comedy</span><span class="lbl" data-i18n="dev-feat">Feature</span></div><div class="dev-title">Influencer por Accidente</div><div class="dev-desc" data-i18n="dev-inf">The accidental rise of an unlikely social media phenomenon in contemporary Paraguay.</div></div>
+      <div class="dev-card"><div class="dev-hdr"><span class="gp gp-o" data-i18n="gen-dra">Drama</span><span class="lbl" data-i18n="dev-feat">Feature</span></div><div class="dev-title">Mamá no me Dio Permiso</div><div class="dev-desc" data-i18n="dev-mam">Coming-of-age drama. A story of permission, rebellion, and the price of growing up.</div></div>
+      <div class="dev-card"><div class="dev-hdr"><span class="gp gp-o" data-i18n="gen-dra">Drama</span><span class="lbl" data-i18n="dev-feat">Feature</span></div><div class="dev-title">Curitiba</div><div class="dev-desc" data-i18n="dev-cur">A story set across borders, between cities, between identities.</div></div>
+      <div class="dev-card"><div class="dev-hdr"><span class="gp gp-h">Horror · Thriller</span><span class="lbl" data-i18n="dev-feat">Feature</span></div><div class="dev-title">Ali</div><div class="dev-desc" data-i18n="dev-ali">A character-driven descent into fear and consequence.</div></div>
+      <div class="dev-card"><div class="dev-hdr"><span class="gp gp-o" data-i18n="gen-fan">Fantasy · Comedy</span><span class="lbl" data-i18n="dev-feat">Feature</span></div><div class="dev-title">El Crack</div><div class="dev-desc" data-i18n="dev-cra">Where ambition meets the absurd in a world that plays by its own rules.</div></div>
+    </div>
+    <div class="doc-row">
+      <div class="doc-card"><div class="lbl" data-i18n="doc-lbl">Documentary</div><div class="doc-title">Raúl Vicente Amarilla</div><div class="doc-desc" data-i18n="doc1">Untitled documentary feature</div></div>
+      <div class="doc-card"><div class="lbl" data-i18n="doc-lbl">Documentary</div><div class="doc-title">Angelitos de Cateura</div><div class="doc-desc" data-i18n="doc2">The music and lives of the Cateura community</div></div>
+      <div class="doc-card"><div class="lbl">Thriller</div><div class="doc-title">Viking King of Paraguay</div><div class="doc-desc" data-i18n="doc3">A stranger-than-fiction story from the heart of South America</div></div>
+    </div>
+    <div class="vert-strip">
+      <div><span class="lbl" data-i18n="vert-lbl">Vertical &amp; Micro-Drama</span><p style="font-family:'Noto Serif',serif;font-style:italic;font-size:.9rem;color:var(--muted);margin-top:.5rem;" data-i18n="vert-desc">An active slate of short-form and vertical narrative content for digital platforms.</p></div>
+      <a href="#contact" class="inq-link" data-i18n="inquire">Inquire →</a>
+    </div>
+  </div>
+</section>
+
+<section id="mission">
+  <div class="sec-inner">
+    <div class="sec-hdr">
+      <div><span class="sec-num">03.</span><h2 data-i18n="mis-h">Built from <span>Cinema</span></h2></div>
+    </div>
+    <div class="mission-grid">
+      <div class="mission-sticky">
+        <span class="lbl" data-i18n="mis-case">Case Statement · UA-992-B</span>
+        <blockquote class="mission-quote" data-i18n="mis-q">"The necessary means — and the people who know exactly what that takes."</blockquote>
+        <div class="stats-box">
+          <div class="stat-cell"><div class="stat-n">10+</div><div class="lbl" data-i18n="s1">Years in Production</div></div>
+          <div class="stat-cell"><div class="stat-n">4</div><div class="lbl" data-i18n="s2">Completed Features</div></div>
+          <div class="stat-cell"><div class="stat-n" style="font-size:1.6rem;">HBO</div><div class="lbl" data-i18n="s3">Co-Production Partner</div></div>
+          <div class="stat-cell"><div class="stat-n" style="font-size:1.4rem;">PY·ES</div><div class="lbl" data-i18n="s4">Primary Markets</div></div>
         </div>
-    </nav>
+      </div>
+      <div class="mission-body">
+        <p data-i18n="mp1">If you know <em>The Big Lebowski</em>, you already know where this is going. In the 1998 Coen Brothers film, the "Little Lebowski Urban Achievers" are inner-city children of promise without the necessary means for a higher education. It is, in the film, largely a front. We are not.</p>
+        <p data-i18n="mp2">Urban Achievers S.A. was born from a conversation between a father and a son for whom that film is not just a favorite, but a shared language — and for whom cinema is not a hobby but a lifelong obsession. We develop stories, produce films, and stay in the room from first draft to final cut. This is not a fund. It is a production company built by people who love film the way others love breathing.</p>
+        <p data-i18n="mp3">We also bring something uncommon to this industry: decades of experience in capital markets, financial structuring, and enterprise development. We understand every stage — development, financing, production, exhibition, and sales — and apply that discipline without apology. We are supported by leading professionals in finance, banking, legal, accounting, and compliance. Not dreamers. Serious practitioners who happen to be obsessed with great cinema.</p>
+        <p data-i18n="mp4">And where we can, we bring emerging talent into the process — not as charity, but as collaborators. Talent is not scarce in this region. Access is.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- HERO -->
-    <section id="hero">
-        <div class="hero-bg"></div>
-        <span class="hero-eyebrow">Asunción, Paraguay · Est. 2014</span>
-        <h1 class="hero-title">PROVIDING<br>THE <span class="stroke-text">NECESSARY</span><br>MEANS</h1>
-        <p class="hero-subtitle" data-i18n="hero-sub">A Paraguayan production company. We develop, produce, and finance our films — from first draft to international market. Built on three decades of capital markets discipline and a lifelong obsession with cinema.</p>
-        <a href="#slate" class="hero-cta" data-i18n="hero-cta">Explore the Slate</a>
-        <div class="hero-scroll-line" data-i18n="scroll">Scroll</div>
-    </section>
-
-    <!-- MALDECIDOS -->
-    <section id="feature">
-        <div class="feature-inner">
-            <div class="feature-poster">
-                <div class="feature-poster-frame">
-                    <img src="https://images.unsplash.com/photo-1509248961158-e54f6934749c?auto=format&fit=crop&q=80&w=600" alt="Maldecidos">
-                </div>
-                <div class="feature-badge" data-i18n="feat-badge">Principal Photography · July 2026</div>
-            </div>
-            <div class="feature-content">
-                <span class="section-label" data-i18n="feat-label">Next Production</span>
-                <h2>MAL<em>DECIDOS</em></h2>
-                <div class="feature-meta">
-                    <div class="feature-meta-item">
-                        <span class="label" data-i18n="feat-genre-label">Genre</span>
-                        <span class="value" data-i18n="feat-genre-val">Horror / Supernatural Thriller</span>
-                    </div>
-                    <div class="feature-meta-item">
-                        <span class="label" data-i18n="feat-format-label">Format</span>
-                        <span class="value" data-i18n="feat-format-val">Feature Film · 90 Scenes · 23 Days</span>
-                    </div>
-                    <div class="feature-meta-item">
-                        <span class="label" data-i18n="feat-markets-label">Markets</span>
-                        <span class="value">Cannes · AFM · International</span>
-                    </div>
-                </div>
-                <p class="feature-synopsis" data-i18n="feat-synopsis">A horror that lives in the spaces between belief and dread. Shot across twelve locations in Paraguay, Maldecidos marks Urban Achievers' most ambitious production to date — a co-production positioned for international festival markets and genre distribution.</p>
-                <div class="feature-date-countdown" data-i18n="feat-date">Shoot Date: 13 July 2026</div>
-            </div>
+<section id="team">
+  <div class="sec-inner">
+    <div class="sec-hdr">
+      <div><span class="sec-num">04.</span><h2>The <span data-i18n="team-h">Achievers</span></h2></div>
+      <span class="lbl" data-i18n="team-sub">Principals &amp; Collaborators</span>
+    </div>
+    <div class="principals-grid">
+      <div class="p-card">
+        <div class="p-photo"><img src="https://via.placeholder.com/200x240?text=RRD" alt="René Ruiz Díaz"></div>
+        <div>
+          <div class="p-name">René Ruiz Díaz</div>
+          <div class="lbl-amber p-role" data-i18n="rrd-role">President · Producer</div>
+          <p class="p-bio" data-i18n="rrd-bio">Film producer and capital markets executive. Credits include international co-productions with HBO and Sony Pictures, with festival credentials at Sitges and Cannes. Host of Inteligencia Financiera and founding partner of Urban Achievers S.A.</p>
         </div>
-    </section>
-
-    <!-- COMPLETED SLATE -->
-    <section id="slate">
-        <div class="slate-inner">
-            <div class="slate-header">
-                <h2 data-i18n="slate-title">Completed <span>Works</span></h2>
-                <span class="slate-count" data-i18n="slate-count">4 Films · 2017–2025</span>
-            </div>
-            <div class="films-grid">
-                <div class="film-card">
-                    <div class="film-card-poster">
-                        <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&q=80&w=500" alt="Los Buscadores">
-                        <div class="film-card-poster-overlay"><span class="film-card-poster-tag" data-i18n="f1-tag">Oscar Submission · Paraguay</span></div>
-                    </div>
-                    <h3 class="film-card-title">Los Buscadores</h3>
-                    <p class="film-card-meta"><span class="film-card-role" data-i18n="f1-role">Exec. Producer</span> · <span data-i18n="f1-genre">Thriller</span> · 2017</p>
-                    <p class="film-card-meta" style="margin-top:.25rem;font-size:.7rem;color:var(--muted);">Dir. Maneglia-Schémbori</p>
-                </div>
-                <div class="film-card">
-                    <div class="film-card-poster">
-                        <img src="https://images.unsplash.com/photo-1614846384571-1e31322f00b0?auto=format&fit=crop&q=80&w=500" alt="Morgue">
-                        <div class="film-card-poster-overlay"><span class="film-card-poster-tag">Sitges · HBO · Sony</span></div>
-                    </div>
-                    <h3 class="film-card-title">Morgue</h3>
-                    <p class="film-card-meta"><span class="film-card-role" data-i18n="f2-role">Financial Advisor</span> · Horror · 2019</p>
-                    <p class="film-card-meta" style="margin-top:.25rem;font-size:.7rem;color:var(--muted);">Dir. Hugo Cardozo</p>
-                </div>
-                <div class="film-card">
-                    <div class="film-card-poster">
-                        <img src="https://images.unsplash.com/photo-1600680759949-fe2b7a3cfc24?auto=format&fit=crop&q=80&w=500" alt="No Entres">
-                        <div class="film-card-poster-overlay"><span class="film-card-poster-tag" data-i18n="f3-tag">International Release</span></div>
-                    </div>
-                    <h3 class="film-card-title">No Entres</h3>
-                    <p class="film-card-meta"><span class="film-card-role" data-i18n="f3-role">Producer / Exec. Producer</span> · Horror · 2024</p>
-                    <p class="film-card-meta" style="margin-top:.25rem;font-size:.7rem;color:var(--muted);">Dir. Hugo Cardozo</p>
-                </div>
-                <div class="film-card">
-                    <div class="film-card-poster">
-                        <img src="https://images.unsplash.com/photo-1509248961158-e54f6934749c?auto=format&fit=crop&q=80&w=500" alt="The Red Book Ritual">
-                        <div class="film-card-poster-overlay"><span class="film-card-poster-tag" data-i18n="f4-tag">Horror Anthology · 2025</span></div>
-                    </div>
-                    <h3 class="film-card-title">The Red Book Ritual: Gates of Hell</h3>
-                    <p class="film-card-meta"><span class="film-card-role" data-i18n="f4-role">Producer / Exec. Producer</span> · <span data-i18n="f4-genre">Horror Anthology</span> · 2025</p>
-                </div>
-            </div>
+      </div>
+      <div class="p-card">
+        <div class="p-photo"><img src="https://via.placeholder.com/200x240?text=GRD" alt="Gonzalo Ruiz Díaz"></div>
+        <div>
+          <div class="p-name">Gonzalo Ruiz Díaz</div>
+          <div class="lbl-amber p-role" data-i18n="grd-role">Director · Producer</div>
+          <p class="p-bio" data-i18n="grd-bio">Director and producer with a focus on genre filmmaking and narrative development. Leads creative production at Urban Achievers, driving the company's expanding slate across horror, drama, comedy, and documentary.</p>
         </div>
-    </section>
+      </div>
+    </div>
+    <div class="crew-sec">
+      <span class="lbl" data-i18n="crew-lbl">Frequent Collaborators</span>
+      <div class="crew-grid">
+        <div><div class="c-name">Hugo Cardozo</div><div class="lbl" data-i18n="cr-dir">Director</div></div>
+        <div><div class="c-name">Edgar Cardozo</div><div class="lbl" data-i18n="cr-col">Collaborator</div></div>
+        <div><div class="c-name">Mario González Martí</div><div class="lbl" data-i18n="cr-col">Collaborator</div></div>
+        <div><div class="c-name">Diana Frutos</div><div class="lbl" data-i18n="cr-col">Collaborator</div></div>
+        <div><div class="c-name">Alfredo Galeano</div><div class="lbl" data-i18n="cr-col">Collaborator</div></div>
+        <div><div class="c-name">Samuel Cardozo</div><div class="lbl" data-i18n="cr-col">Collaborator</div></div>
+        <div><div class="c-name">Gabriela Parra</div><div class="lbl" data-i18n="cr-col">Collaborator</div></div>
+        <div><div class="c-name">Fernando Cabral</div><div class="lbl" data-i18n="cr-col">Collaborator</div></div>
+      </div>
+    </div>
+    <div class="support-blk">
+      <span class="lbl" style="flex-shrink:0;padding-top:.15rem;" data-i18n="sup-lbl">Professional Support</span>
+      <p class="support-txt" data-i18n="sup-txt">Urban Achievers is backed by a network of leading professionals across financial advisory, investment banking, accounting, legal, regulatory compliance, and corporate governance — the same caliber of expertise that underpins any serious institutional operation. By design, a 360-degree company.</p>
+    </div>
+  </div>
+</section>
 
-    <!-- IN DEVELOPMENT -->
-    <section id="development" style="padding:7rem 3rem;background:var(--surface);">
-        <div class="slate-inner">
-            <div class="slate-header">
-                <h2><span data-i18n="dev-title">In</span> <span style="color:var(--gold)" data-i18n="dev-title2">Development</span></h2>
-                <span class="slate-count" data-i18n="dev-count">9 Projects + Vertical Slate</span>
-            </div>
-            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;margin-bottom:3rem;">
-                <div style="background:var(--deep);padding:2rem;border:1px solid var(--border);transition:border-color .3s;" onmouseover="this.style.borderColor='var(--gold-dim)'" onmouseout="this.style.borderColor='var(--border)'">
-                    <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
-                        <span style="font-family:'Cinzel',serif;font-size:.45rem;letter-spacing:.3em;color:var(--red-hot);text-transform:uppercase;border:1px solid var(--red);padding:.2rem .5rem;">Horror</span>
-                        <span style="font-family:'Cinzel',serif;font-size:.45rem;letter-spacing:.2em;color:var(--muted);text-transform:uppercase;" data-i18n="dev-feature">Feature</span>
-                    </div>
-                    <h3 style="font-family:'Cinzel',serif;font-size:1rem;letter-spacing:.08em;color:var(--text);margin-bottom:.5rem;">Maldecidos</h3>
-                    <p style="font-size:.8rem;color:var(--muted);font-style:italic;" data-i18n="dev-maldecidos">Supernatural thriller. Shoot date: 13 July 2026. 23-day production across 12 Paraguay locations.</p>
-                </div>
-                <div style="background:var(--deep);padding:2rem;border:1px solid var(--border);transition:border-color .3s;" onmouseover="this.style.borderColor='var(--gold-dim)'" onmouseout="this.style.borderColor='var(--border)'">
-                    <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
-                        <span style="font-family:'Cinzel',serif;font-size:.45rem;letter-spacing:.3em;color:var(--gold);text-transform:uppercase;border:1px solid var(--gold-dim);padding:.2rem .5rem;" data-i18n="genre-comedy">Comedy</span>
-                        <span style="font-family:'Cinzel',serif;font-size:.45rem;letter-spacing:.2em;color:var(--muted);text-transform:uppercase;" data-i18n="dev-feature">Feature</span>
-                    </div>
-                    <h3 style="font-family:'Cinzel',serif;font-size:1rem;letter-spacing:.08em;color:var(--text);margin-bottom:.5rem;">Influencer por Accidente</h3>
-                    <p style="font-size:.8rem;color:var(--muted);font-style:italic;" data-i18n="dev-influencer">Comedy. The accidental rise of an unlikely social media phenomenon in contemporary Paraguay.</p>
-                </div>
-                <div style="background:var(--deep);padding:2rem;border:1px solid var(--border);transition:border-color .3s;" onmouseover="this.style.borderColor='var(--gold-dim)'" onmouseout="this.style.borderColor='var(--border)'">
-                    <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
-                        <span style="font-family:'Cinzel',serif;font-size:.45rem;letter-spacing:.3em;color:var(--gold);text-transform:uppercase;border:1px solid var(--gold-dim);padding:.2rem .5rem;" data-i18n="genre-drama">Drama</span>
-                        <span style="font-family:'Cinzel',serif;font-size:.45rem;letter-spacing:.2em;color:var(--muted);text-transform:uppercase;" data-i18n="dev-feature">Feature</span>
-                    </div>
-                    <h3 style="font-family:'Cinzel',serif;font-size:1rem;letter-spacing:.08em;color:var(--text);margin-bottom:.5rem;">Mamá no me Dio Permiso</h3>
-                    <p style="font-size:.8rem;color:var(--muted);font-style:italic;" data-i18n="dev-mama">Coming-of-age drama. A story of permission, rebellion, and the price of growing up.</p>
-                </div>
-                <div style="background:var(--deep);padding:2rem;border:1px solid var(--border);transition:border-color .3s;" onmouseover="this.style.borderColor='var(--gold-dim)'" onmouseout="this.style.borderColor='var(--border)'">
-                    <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
-                        <span style="font-family:'Cinzel',serif;font-size:.45rem;letter-spacing:.3em;color:var(--gold);text-transform:uppercase;border:1px solid var(--gold-dim);padding:.2rem .5rem;" data-i18n="genre-drama">Drama</span>
-                        <span style="font-family:'Cinzel',serif;font-size:.45rem;letter-spacing:.2em;color:var(--muted);text-transform:uppercase;" data-i18n="dev-feature">Feature</span>
-                    </div>
-                    <h3 style="font-family:'Cinzel',serif;font-size:1rem;letter-spacing:.08em;color:var(--text);margin-bottom:.5rem;">Curitiba</h3>
-                    <p style="font-size:.8rem;color:var(--muted);font-style:italic;" data-i18n="dev-curitiba">Drama. A story set across borders, between cities, between identities.</p>
-                </div>
-                <div style="background:var(--deep);padding:2rem;border:1px solid var(--border);transition:border-color .3s;" onmouseover="this.style.borderColor='var(--gold-dim)'" onmouseout="this.style.borderColor='var(--border)'">
-                    <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
-                        <span style="font-family:'Cinzel',serif;font-size:.45rem;letter-spacing:.3em;color:var(--red-hot);text-transform:uppercase;border:1px solid var(--red);padding:.2rem .5rem;">Horror · Thriller</span>
-                        <span style="font-family:'Cinzel',serif;font-size:.45rem;letter-spacing:.2em;color:var(--muted);text-transform:uppercase;" data-i18n="dev-feature">Feature</span>
-                    </div>
-                    <h3 style="font-family:'Cinzel',serif;font-size:1rem;letter-spacing:.08em;color:var(--text);margin-bottom:.5rem;">Ali</h3>
-                    <p style="font-size:.8rem;color:var(--muted);font-style:italic;" data-i18n="dev-ali">Horror thriller. A character-driven descent into fear and consequence.</p>
-                </div>
-                <div style="background:var(--deep);padding:2rem;border:1px solid var(--border);transition:border-color .3s;" onmouseover="this.style.borderColor='var(--gold-dim)'" onmouseout="this.style.borderColor='var(--border)'">
-                    <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
-                        <span style="font-family:'Cinzel',serif;font-size:.45rem;letter-spacing:.3em;color:var(--gold);text-transform:uppercase;border:1px solid var(--gold-dim);padding:.2rem .5rem;" data-i18n="genre-fantasy">Fantasy · Comedy</span>
-                        <span style="font-family:'Cinzel',serif;font-size:.45rem;letter-spacing:.2em;color:var(--muted);text-transform:uppercase;" data-i18n="dev-feature">Feature</span>
-                    </div>
-                    <h3 style="font-family:'Cinzel',serif;font-size:1rem;letter-spacing:.08em;color:var(--text);margin-bottom:.5rem;">El Crack</h3>
-                    <p style="font-size:.8rem;color:var(--muted);font-style:italic;" data-i18n="dev-elcrack">Fantasy comedy. Where ambition meets the absurd in a world that plays by its own rules.</p>
-                </div>
-            </div>
-            <div style="margin-bottom:3rem;">
-                <p style="font-family:'Cinzel',serif;font-size:.5rem;letter-spacing:.5em;color:var(--muted);text-transform:uppercase;margin-bottom:1.5rem;" data-i18n="dev-doc-label">Documentary</p>
-                <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;">
-                    <div style="background:var(--deep);padding:1.5rem 2rem;border:1px solid var(--border);">
-                        <h3 style="font-family:'Crimson Pro',serif;font-size:.95rem;color:var(--text);margin-bottom:.4rem;">Raúl Vicente Amarilla</h3>
-                        <p style="font-size:.75rem;color:var(--muted);" data-i18n="doc1-desc">Untitled documentary feature.</p>
-                    </div>
-                    <div style="background:var(--deep);padding:1.5rem 2rem;border:1px solid var(--border);">
-                        <h3 style="font-family:'Crimson Pro',serif;font-size:.95rem;color:var(--text);margin-bottom:.4rem;">Angelitos de Cateura</h3>
-                        <p style="font-size:.75rem;color:var(--muted);" data-i18n="doc2-desc">Documentary. The music and lives of the Cateura community.</p>
-                    </div>
-                    <div style="background:var(--deep);padding:1.5rem 2rem;border:1px solid var(--border);">
-                        <h3 style="font-family:'Crimson Pro',serif;font-size:.95rem;color:var(--text);margin-bottom:.4rem;">Viking King of Paraguay</h3>
-                        <p style="font-size:.75rem;color:var(--muted);" data-i18n="doc3-desc">Thriller. A stranger-than-fiction story from the heart of South America.</p>
-                    </div>
-                </div>
-            </div>
-            <div style="border-top:1px solid var(--border);padding-top:2rem;display:flex;justify-content:space-between;align-items:center;">
-                <div>
-                    <p style="font-family:'Cinzel',serif;font-size:.5rem;letter-spacing:.5em;color:var(--muted);text-transform:uppercase;margin-bottom:.5rem;" data-i18n="dev-vertical-label">Vertical &amp; Micro-Drama</p>
-                    <p style="font-size:.9rem;color:var(--text);font-style:italic;font-family:'Crimson Pro',serif;" data-i18n="dev-vertical-desc">An active slate of short-form and vertical narrative content for digital platforms.</p>
-                </div>
-                <a href="#contact" style="font-family:'Cinzel',serif;font-size:.55rem;letter-spacing:.35em;color:var(--gold);text-decoration:none;border-bottom:1px solid var(--gold-dim);padding-bottom:.3rem;white-space:nowrap;margin-left:3rem;flex-shrink:0;transition:color .3s;" data-i18n="inquire">Inquire →</a>
-            </div>
+<section id="contact">
+  <div class="sec-inner">
+    <div class="sec-hdr">
+      <div><span class="sec-num">05.</span><h2 data-i18n="con-h">Contact <span>&amp; Bulletin</span></h2></div>
+    </div>
+    <div class="contact-grid">
+      <div class="c-panel">
+        <span class="lbl-amber" data-i18n="con-lbl">Get in Touch</span>
+        <h2><span data-i18n="con-h1">Contact</span><br><em data-i18n="con-h2">Us</em></h2>
+        <p class="c-desc" data-i18n="con-desc">Questions, co-production proposals, press inquiries. We read everything.</p>
+        <div class="ff"><label data-i18n="f-name">Name</label><input type="text" data-i18n-ph="ph-name" placeholder="Your name"></div>
+        <div class="ff"><label data-i18n="f-email">Email</label><input type="email" placeholder="your@email.com"></div>
+        <div class="ff"><label data-i18n="f-msg">Message</label><textarea rows="4" data-i18n-ph="ph-msg" placeholder="How can we help?"></textarea></div>
+        <button class="f-btn" data-i18n="f-send">Send Message →</button>
+        <div class="find-us">
+          <div class="lbl" data-i18n="find-us">Find Us</div>
+          <div class="fu-name">Asunción, Paraguay</div>
+          <div class="fu-email">contact@urbanachievers.com.py</div>
         </div>
-    </section>
+      </div>
+      <div class="c-panel">
+        <span class="lbl-amber" data-i18n="sub-lbl">The Bulletin</span>
+        <h2><span data-i18n="sub-h1">Stay</span><br><em data-i18n="sub-h2">Informed</em></h2>
+        <p class="c-desc" data-i18n="sub-desc">Production updates, festival news, and dispatches from the slate. No noise — only what matters.</p>
+        <div class="ff"><label data-i18n="f-name">Name</label><input type="text" data-i18n-ph="ph-name" placeholder="Your name"></div>
+        <div class="ff"><label data-i18n="f-email">Email</label><input type="email" placeholder="your@email.com"></div>
+        <div class="consent-row"><input type="checkbox" id="consent"><label for="consent" class="consent-lbl" data-i18n="sub-con">I agree to receive occasional updates from Urban Achievers S.A. No spam, ever.</label></div>
+        <button class="f-btn" data-i18n="sub-btn">Subscribe →</button>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- BUILT FROM CINEMA -->
-    <section id="mission">
-        <div class="mission-inner">
-            <div>
-                <span class="section-label" data-i18n="mission-label">Built from Cinema</span>
-                <blockquote class="mission-quote" data-i18n="mission-quote">"The necessary means — and the people who know exactly what that takes."</blockquote>
-            </div>
-            <div class="mission-body">
-                <p data-i18n="mission-p1">If you know <em>The Big Lebowski</em>, you already know where this is going. In the 1998 Coen Brothers film, the "Little Lebowski Urban Achievers" are inner-city children of promise without the necessary means for a higher education. It is, in the film, largely a front. We are not.</p>
-                <p data-i18n="mission-p2">Urban Achievers S.A. was born from a conversation between a father and a son for whom that film is not just a favorite, but a shared language — and for whom cinema is not a hobby but a lifelong obsession. We develop stories, produce films, and stay in the room from first draft to final cut. This is not a fund. It is a production company built by people who love film the way others love breathing.</p>
-                <p data-i18n="mission-p3">We also bring something uncommon to this industry: decades of experience in capital markets, financial structuring, and enterprise development. We understand every stage — development, financing, production, exhibition, and sales — and we apply that discipline without apology. We are supported by leading professionals in finance, banking, legal, accounting, and compliance. Not dreamers. Serious practitioners who happen to be obsessed with great cinema.</p>
-                <p data-i18n="mission-p4">And where we can, we bring emerging talent into the process — not as charity, but as collaborators. Talent is not scarce in this region. Access is.</p>
-                <div class="mission-stats">
-                    <div class="stat-item"><div class="stat-number">10+</div><div class="stat-label" data-i18n="stat1">Years in Production</div></div>
-                    <div class="stat-item"><div class="stat-number">4</div><div class="stat-label" data-i18n="stat2">Completed Features</div></div>
-                    <div class="stat-item"><div class="stat-number">HBO</div><div class="stat-label" data-i18n="stat3">Co-Production Partner</div></div>
-                    <div class="stat-item"><div class="stat-number">PY·ES</div><div class="stat-label" data-i18n="stat4">Primary Co-Pro Markets</div></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- TEAM -->
-    <section id="team">
-        <div class="team-inner">
-            <div class="team-header">
-                <h2>The <span>Achievers</span></h2>
-                <span class="slate-count" data-i18n="team-count">Principals &amp; Frequent Collaborators</span>
-            </div>
-            <div class="principals-grid">
-                <div class="principal-card">
-                    <div class="principal-photo"><img src="https://via.placeholder.com/200x240?text=RRD" alt="René Ruiz Díaz"></div>
-                    <div class="principal-info">
-                        <h3>René Ruiz Díaz</h3>
-                        <p class="principal-role" data-i18n="rrd-role">President · Producer</p>
-                        <p class="principal-bio" data-i18n="rrd-bio">Film producer and capital markets executive. Credits include international co-productions with HBO and Sony Pictures, with festival credentials at Sitges and Cannes. Host of <em>Inteligencia Financiera</em> and founding partner of Urban Achievers S.A.</p>
-                    </div>
-                </div>
-                <div class="principal-card">
-                    <div class="principal-photo"><img src="https://via.placeholder.com/200x240?text=GRD" alt="Gonzalo Ruiz Díaz"></div>
-                    <div class="principal-info">
-                        <h3>Gonzalo Ruiz Díaz</h3>
-                        <p class="principal-role" data-i18n="grd-role">Director · Producer</p>
-                        <p class="principal-bio" data-i18n="grd-bio">Director and producer with a focus on genre filmmaking and narrative development. Leads creative production at Urban Achievers, driving the company's expanding slate across horror, drama, comedy, and documentary.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="crew-section">
-                <p class="crew-label" data-i18n="crew-label">Frequent Collaborators</p>
-                <div class="crew-grid">
-                    <div class="crew-item"><div class="crew-name">Hugo Cardozo</div><div class="crew-dept" data-i18n="crew-director">Director</div></div>
-                    <div class="crew-item"><div class="crew-name">Edgar Cardozo</div><div class="crew-dept" data-i18n="crew-collab">Collaborator</div></div>
-                    <div class="crew-item"><div class="crew-name">Mario González Martí</div><div class="crew-dept" data-i18n="crew-collab">Collaborator</div></div>
-                    <div class="crew-item"><div class="crew-name">Diana Frutos</div><div class="crew-dept" data-i18n="crew-collab">Collaborator</div></div>
-                    <div class="crew-item"><div class="crew-name">Alfredo Galeano</div><div class="crew-dept" data-i18n="crew-collab">Collaborator</div></div>
-                    <div class="crew-item"><div class="crew-name">Samuel Cardozo</div><div class="crew-dept" data-i18n="crew-collab">Collaborator</div></div>
-                    <div class="crew-item"><div class="crew-name">Gabriela Parra</div><div class="crew-dept" data-i18n="crew-collab">Collaborator</div></div>
-                    <div class="crew-item"><div class="crew-name">Fernando Cabral</div><div class="crew-dept" data-i18n="crew-collab">Collaborator</div></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact">
-        <div class="contact-inner">
-            <div class="contact-top">
-                <div class="contact-heading">
-                    <span class="section-label" data-i18n="contact-label">Get in Touch</span>
-                    <h2><span data-i18n="contact-h1">CONTACT</span><br><em data-i18n="contact-h2">US</em></h2>
-                    <p data-i18n="contact-desc">Questions, co-production proposals, press inquiries. We read everything.</p>
-                </div>
-                <div class="contact-form">
-                    <div class="form-row">
-                        <div class="form-field">
-                            <label data-i18n="form-name">Name</label>
-                            <input type="text" data-i18n-ph="ph-name" placeholder="Your name">
-                        </div>
-                        <div class="form-field">
-                            <label data-i18n="form-email">Email</label>
-                            <input type="email" placeholder="your@email.com">
-                        </div>
-                    </div>
-                    <div class="form-field">
-                        <label data-i18n="form-message">Message</label>
-                        <textarea rows="4" data-i18n-ph="ph-message" placeholder="How can we help?"></textarea>
-                    </div>
-                    <button class="form-submit" data-i18n="form-send">Send Message →</button>
-                </div>
-            </div>
-            <div class="subscribe-strip">
-                <div class="subscribe-heading">
-                    <h3 data-i18n="sub-title">Stay <span>Informed</span></h3>
-                    <p data-i18n="sub-desc">News on our slate, festival results, and new productions — straight to your inbox. No noise.</p>
-                </div>
-                <div class="subscribe-form">
-                    <input type="email" data-i18n-ph="ph-sub" placeholder="your@email.com">
-                    <button data-i18n="sub-btn">Subscribe →</button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <div class="footer-logo">URBAN <span>ACHIEVERS</span> S.A.</div>
-        <div class="footer-text" data-i18n="footer-copy">© 2026 · Asunción, Paraguay · All Rights Reserved</div>
-        <div class="footer-quote">The Dude Abides.</div>
-    </footer>
+<footer>
+  <div class="f-logo">Urban Achievers S.A.</div>
+  <span class="lbl" data-i18n="ft-copy">© 2026 · Asunción, Paraguay · All Rights Reserved</span>
+  <div class="f-quote">The Dude Abides.</div>
+</footer>
 
 <script>
-const t={en:{'nav-feature':'Maldecidos','nav-slate':'The Slate','nav-dev':'In Development','nav-mission':'Our Story','nav-team':'Team','nav-contact':'Contact','hero-sub':'A Paraguayan production company. We develop, produce, and finance our films — from first draft to international market. Built on three decades of capital markets discipline and a lifelong obsession with cinema.','hero-cta':'Explore the Slate','scroll':'Scroll','feat-badge':'Principal Photography · July 2026','feat-label':'Next Production','feat-genre-label':'Genre','feat-genre-val':'Horror / Supernatural Thriller','feat-format-label':'Format','feat-format-val':'Feature Film · 90 Scenes · 23 Days','feat-markets-label':'Markets','feat-synopsis':"A horror that lives in the spaces between belief and dread. Shot across twelve locations in Paraguay, Maldecidos marks Urban Achievers' most ambitious production to date — a co-production positioned for international festival markets and genre distribution.",'feat-date':'Shoot Date: 13 July 2026','slate-title':'Completed <span style="color:var(--gold)">Works</span>','slate-count':'4 Films · 2017–2025','f1-tag':'Oscar Submission · Paraguay','f1-role':'Exec. Producer','f1-genre':'Thriller','f2-role':'Financial Advisor','f3-tag':'International Release','f3-role':'Producer / Exec. Producer','f4-tag':'Horror Anthology · 2025','f4-role':'Producer / Exec. Producer','f4-genre':'Horror Anthology','dev-title':'In','dev-title2':'Development','dev-count':'9 Projects + Vertical Slate','dev-feature':'Feature','genre-comedy':'Comedy','genre-drama':'Drama','genre-fantasy':'Fantasy · Comedy','dev-maldecidos':'Supernatural thriller. Shoot date: 13 July 2026. 23-day production across 12 Paraguay locations.','dev-influencer':'Comedy. The accidental rise of an unlikely social media phenomenon in contemporary Paraguay.','dev-mama':'Coming-of-age drama. A story of permission, rebellion, and the price of growing up.','dev-curitiba':'Drama. A story set across borders, between cities, between identities.','dev-ali':'Horror thriller. A character-driven descent into fear and consequence.','dev-elcrack':'Fantasy comedy. Where ambition meets the absurd in a world that plays by its own rules.','dev-doc-label':'Documentary','doc1-desc':'Untitled documentary feature.','doc2-desc':'Documentary. The music and lives of the Cateura community.','doc3-desc':'Thriller. A stranger-than-fiction story from the heart of South America.','dev-vertical-label':'Vertical & Micro-Drama','dev-vertical-desc':'An active slate of short-form and vertical narrative content for digital platforms.','inquire':'Inquire →','mission-label':'Built from Cinema','mission-quote':'"The necessary means — and the people who know exactly what that takes."','mission-p1':'If you know <em>The Big Lebowski</em>, you already know where this is going. In the 1998 Coen Brothers film, the "Little Lebowski Urban Achievers" are inner-city children of promise without the necessary means for a higher education. It is, in the film, largely a front. We are not.','mission-p2':"Urban Achievers S.A. was born from a conversation between a father and a son for whom that film is not just a favorite, but a shared language — and for whom cinema is not a hobby but a lifelong obsession. We develop stories, produce films, and stay in the room from first draft to final cut. This is not a fund. It is a production company built by people who love film the way others love breathing.",'mission-p3':"We also bring something uncommon to this industry: decades of experience in capital markets, financial structuring, and enterprise development. We understand every stage — development, financing, production, exhibition, and sales — and apply that discipline without apology. We are supported by leading professionals in finance, banking, legal, accounting, and compliance. Not dreamers. Serious practitioners who happen to be obsessed with great cinema.",'mission-p4':'And where we can, we bring emerging talent into the process — not as charity, but as collaborators. Talent is not scarce in this region. Access is.','stat1':'Years in Production','stat2':'Completed Features','stat3':'Co-Production Partner','stat4':'Primary Co-Pro Markets','team-count':'Principals & Frequent Collaborators','rrd-role':'President · Producer','rrd-bio':'Film producer and capital markets executive. Credits include international co-productions with HBO and Sony Pictures, with festival credentials at Sitges and Cannes. Host of <em>Inteligencia Financiera</em> and founding partner of Urban Achievers S.A.','grd-role':'Director · Producer','grd-bio':"Director and producer with a focus on genre filmmaking and narrative development. Leads creative production at Urban Achievers, driving the company's expanding slate across horror, drama, comedy, and documentary.",'crew-label':'Frequent Collaborators','crew-director':'Director','crew-collab':'Collaborator','contact-label':'Get in Touch','contact-h1':'CONTACT','contact-h2':'US','contact-desc':'Questions, co-production proposals, press inquiries. We read everything.','form-name':'Name','form-email':'Email','form-message':'Message','form-send':'Send Message →','ph-name':'Your name','ph-message':'How can we help?','sub-title':'Stay <span style="color:var(--gold)">Informed</span>','sub-desc':'News on our slate, festival results, and new productions — straight to your inbox. No noise.','ph-sub':'your@email.com','sub-btn':'Subscribe →','footer-copy':'© 2026 · Asunción, Paraguay · All Rights Reserved'},
-es:{'nav-feature':'Maldecidos','nav-slate':'El Catálogo','nav-dev':'En Desarrollo','nav-mission':'Nuestra Historia','nav-team':'Equipo','nav-contact':'Contacto','hero-sub':'Una productora paraguaya. Desarrollamos, producimos y financiamos nuestras películas — desde el primer borrador hasta el mercado internacional. Construida sobre tres décadas de disciplina en mercados de capitales y una obsesión de toda la vida por el cine.','hero-cta':'Explorar el Catálogo','scroll':'Scroll','feat-badge':'Inicio de Rodaje · Julio 2026','feat-label':'Próxima Producción','feat-genre-label':'Género','feat-genre-val':'Terror / Thriller Sobrenatural','feat-format-label':'Formato','feat-format-val':'Largometraje · 90 Escenas · 23 Días','feat-markets-label':'Mercados','feat-synopsis':'Un terror que vive en los espacios entre la creencia y el miedo. Rodado en doce locaciones del Paraguay, Maldecidos es la producción más ambiciosa de Urban Achievers hasta la fecha — un proyecto posicionado para festivales internacionales y distribución de género.','feat-date':'Inicio de Rodaje: 13 de Julio 2026','slate-title':'Obras <span style="color:var(--gold)">Completadas</span>','slate-count':'4 Películas · 2017–2025','f1-tag':'Candidatura al Óscar · Paraguay','f1-role':'Productor Ejecutivo','f1-genre':'Thriller','f2-role':'Asesor Financiero','f3-tag':'Estreno Internacional','f3-role':'Productor / Productor Ejecutivo','f4-tag':'Antología de Terror · 2025','f4-role':'Productor / Productor Ejecutivo','f4-genre':'Antología de Terror','dev-title':'En','dev-title2':'Desarrollo','dev-count':'9 Proyectos + Contenido Vertical','dev-feature':'Largometraje','genre-comedy':'Comedia','genre-drama':'Drama','genre-fantasy':'Fantasía · Comedia','dev-maldecidos':'Thriller sobrenatural. Inicio de rodaje: 13 de julio de 2026. Producción de 23 días en 12 locaciones del Paraguay.','dev-influencer':'Comedia. El ascenso accidental de un fenómeno improbable de las redes sociales en el Paraguay contemporáneo.','dev-mama':'Drama de crecimiento. Una historia sobre permisos, rebeldía y el precio de crecer.','dev-curitiba':'Drama. Una historia que transcurre entre fronteras, entre ciudades, entre identidades.','dev-ali':'Thriller de terror. Un descenso impulsado por los personajes hacia el miedo y las consecuencias.','dev-elcrack':'Comedia fantástica. Donde la ambición se encuentra con lo absurdo en un mundo que juega con sus propias reglas.','dev-doc-label':'Documental','doc1-desc':'Largometraje documental. Título por confirmar.','doc2-desc':'Documental. La música y las vidas de la comunidad de Cateura.','doc3-desc':'Thriller. Una historia más extraña que la ficción desde el corazón de Sudamérica.','dev-vertical-label':'Contenido Vertical y Micro-Drama','dev-vertical-desc':'Un catálogo activo de contenido narrativo de formato corto y vertical para plataformas digitales.','inquire':'Consultar →','mission-label':'Construidos por el Cine','mission-quote':'"Los medios necesarios — y las personas que saben exactamente lo que eso implica."','mission-p1':'Si conoces <em>El Gran Lebowski</em>, ya sabes adónde va esto. En la película de los hermanos Coen de 1998, los "Little Lebowski Urban Achievers" son jóvenes de promesa sin los medios necesarios para acceder a la educación superior. En la película, es en gran medida una fachada. Nosotros no.','mission-p2':"Urban Achievers S.A. nació de una conversación entre padre e hijo para quienes esa película no es solo una favorita, sino un lenguaje compartido — y para quienes el cine no es un pasatiempo sino una obsesión de toda la vida. Desarrollamos historias, producimos películas y permanecemos en la sala desde el primer borrador hasta el corte final. Esto no es un fondo. Es una productora construida por personas que aman el cine como otros aman respirar.",'mission-p3':"Además, aportamos algo poco común en esta industria: décadas de experiencia en mercados de capitales, estructuración financiera y desarrollo empresarial. Entendemos cada etapa — desarrollo, financiamiento, producción, exhibición y ventas — y aplicamos esa disciplina sin disculpas. Contamos con el respaldo de profesionales destacados en finanzas, banca, derecho, contabilidad y cumplimiento normativo. No somos soñadores. Somos profesionales serios con una obsesión genuina por el gran cine.",'mission-p4':'Y donde podemos, incorporamos talento emergente al proceso — no como caridad, sino como colaboradores. El talento no escasea en esta región. El acceso sí.','stat1':'Años en Producción','stat2':'Largometrajes Completados','stat3':'Socio de Coproducción','stat4':'Mercados Principales','team-count':'Directivos y Colaboradores Frecuentes','rrd-role':'Presidente · Productor','rrd-bio':'Productor cinematográfico y ejecutivo de mercados de capitales. Con créditos en coproducciones internacionales con HBO y Sony Pictures, y presencia en festivales como Sitges y Cannes. Conductor de <em>Inteligencia Financiera</em> y socio fundador de Urban Achievers S.A.','grd-role':'Director · Productor','grd-bio':"Director y productor especializado en cine de género y desarrollo narrativo. Lidera la producción creativa en Urban Achievers, impulsando el catálogo en expansión de la empresa en terror, drama, comedia y documental.",'crew-label':'Colaboradores Frecuentes','crew-director':'Director','crew-collab':'Colaborador','contact-label':'Ponte en Contacto','contact-h1':'CONTÁC-','contact-h2':'TANOS','contact-desc':'Preguntas, propuestas de coproducción, consultas de prensa. Leemos todo.','form-name':'Nombre','form-email':'Correo','form-message':'Mensaje','form-send':'Enviar Mensaje →','ph-name':'Tu nombre','ph-message':'¿Cómo podemos ayudarte?','sub-title':'Mantente <span style="color:var(--gold)">Informado</span>','sub-desc':'Novedades de nuestro catálogo, resultados en festivales y nuevas producciones — directo a tu correo. Sin ruido.','ph-sub':'tu@correo.com','sub-btn':'Suscribirse →','footer-copy':'© 2026 · Asunción, Paraguay · Todos los Derechos Reservados'}};
-
+const T={
+en:{'nav-slate':'The Slate','nav-dev':'In Development','nav-mission':'Our Story','nav-team':'Team','nav-contact':'Contact','hero-eyebrow':'Asunción, Paraguay · Est. 2014','hero-t1':'Providing','hero-t2':'the Necessary','hero-t3':'Means','hero-sub':'A Paraguayan production company. We develop, produce, and finance our films — from first draft to international market. Built on three decades of capital markets discipline and a lifelong obsession with cinema.','hero-cta':'Explore the Slate →','hero-meta':'Sitges · Cannes · AFM · HBO · Sony Pictures','feat-badge':'Principal Photography · July 2026','feat-label':'Next Production','feat-gl':'Genre','feat-gv':'Horror / Supernatural Thriller','feat-fl':'Format','feat-fv':'Feature · 90 Scenes · 23 Days','feat-ml':'Markets','feat-syn':"A horror that lives in the spaces between belief and dread. Shot across twelve locations in Paraguay, Maldecidos marks Urban Achievers' most ambitious production to date — positioned for international festival markets and genre distribution.",'feat-date':'▶ Shoot Date: 13 July 2026','slate-h1':'Completed','slate-h2':'Works','slate-ct':'4 Films · 2017–2025','f1-tag':'Oscar Submission · Paraguay','f1-role':'Exec. Producer','f2-role':'Financial Advisor','f3-tag':'Cannes · Busan · International','f3-role':'Producer / Exec. Producer','f4-tag':'Horror Anthology · 2025','f4-role':'Producer / Exec. Producer','dev-h1':'In','dev-h2':'Development','dev-ct':'9 Projects + Vertical Slate','dev-feat':'Feature','gen-com':'Comedy','gen-dra':'Drama','gen-fan':'Fantasy · Comedy','dev-mal':'Supernatural thriller. Shoot: 13 July 2026. 23-day production across 12 Paraguay locations.','dev-inf':'The accidental rise of an unlikely social media phenomenon in contemporary Paraguay.','dev-mam':'Coming-of-age drama. A story of permission, rebellion, and the price of growing up.','dev-cur':'A story set across borders, between cities, between identities.','dev-ali':'A character-driven descent into fear and consequence.','dev-cra':'Where ambition meets the absurd in a world that plays by its own rules.','doc-lbl':'Documentary','doc1':'Untitled documentary feature','doc2':'The music and lives of the Cateura community','doc3':'A stranger-than-fiction story from the heart of South America','vert-lbl':'Vertical & Micro-Drama','vert-desc':'An active slate of short-form and vertical narrative content for digital platforms.','inquire':'Inquire →','mis-h':'Built from <span>Cinema</span>','mis-case':'Case Statement · UA-992-B','mis-q':'"The necessary means — and the people who know exactly what that takes."','mp1':'If you know <em>The Big Lebowski</em>, you already know where this is going. In the 1998 Coen Brothers film, the "Little Lebowski Urban Achievers" are inner-city children of promise without the necessary means for a higher education. It is, in the film, largely a front. We are not.','mp2':"Urban Achievers S.A. was born from a conversation between a father and a son for whom that film is not just a favorite, but a shared language — and for whom cinema is not a hobby but a lifelong obsession. We develop stories, produce films, and stay in the room from first draft to final cut. This is not a fund. It is a production company built by people who love film the way others love breathing.",'mp3':"We also bring something uncommon to this industry: decades of experience in capital markets, financial structuring, and enterprise development. We understand every stage — development, financing, production, exhibition, and sales — and apply that discipline without apology. We are supported by leading professionals in finance, banking, legal, accounting, and compliance. Not dreamers. Serious practitioners who happen to be obsessed with great cinema.",'mp4':'And where we can, we bring emerging talent into the process — not as charity, but as collaborators. Talent is not scarce in this region. Access is.','s1':'Years in Production','s2':'Completed Features','s3':'Co-Production Partner','s4':'Primary Markets','team-h':'Achievers','team-sub':'Principals & Collaborators','rrd-role':'President · Producer','rrd-bio':'Film producer and capital markets executive. Credits include international co-productions with HBO and Sony Pictures, with festival credentials at Sitges and Cannes. Host of Inteligencia Financiera and founding partner of Urban Achievers S.A.','grd-role':'Director · Producer','grd-bio':"Director and producer with a focus on genre filmmaking and narrative development. Leads creative production at Urban Achievers, driving the company's expanding slate across horror, drama, comedy, and documentary.",'crew-lbl':'Frequent Collaborators','cr-dir':'Director','cr-col':'Collaborator','sup-lbl':'Professional Support','sup-txt':'Urban Achievers is backed by a network of leading professionals across financial advisory, investment banking, accounting, legal, regulatory compliance, and corporate governance — the same caliber of expertise that underpins any serious institutional operation. By design, a 360-degree company.','con-h':'Contact <span>&amp; Bulletin</span>','con-lbl':'Get in Touch','con-h1':'Contact','con-h2':'Us','con-desc':'Questions, co-production proposals, press inquiries. We read everything.','f-name':'Name','f-email':'Email','f-msg':'Message','f-send':'Send Message →','ph-name':'Your name','ph-msg':'How can we help?','find-us':'Find Us','sub-lbl':'The Bulletin','sub-h1':'Stay','sub-h2':'Informed','sub-desc':'Production updates, festival news, and dispatches from the slate. No noise — only what matters.','sub-con':'I agree to receive occasional updates from Urban Achievers S.A. No spam, ever.','sub-btn':'Subscribe →','ft-copy':'© 2026 · Asunción, Paraguay · All Rights Reserved'},
+es:{'nav-slate':'El Catálogo','nav-dev':'En Desarrollo','nav-mission':'Nuestra Historia','nav-team':'Equipo','nav-contact':'Contacto','hero-eyebrow':'Asunción, Paraguay · Est. 2014','hero-t1':'Brindando','hero-t2':'los Medios','hero-t3':'Necesarios','hero-sub':'Una productora paraguaya. Desarrollamos, producimos y financiamos nuestras películas — desde el primer borrador hasta el mercado internacional. Construida sobre tres décadas de disciplina en mercados de capitales y una obsesión de toda la vida por el cine.','hero-cta':'Explorar el Catálogo →','hero-meta':'Sitges · Cannes · AFM · HBO · Sony Pictures','feat-badge':'Inicio de Rodaje · Julio 2026','feat-label':'Próxima Producción','feat-gl':'Género','feat-gv':'Terror / Thriller Sobrenatural','feat-fl':'Formato','feat-fv':'Largometraje · 90 Escenas · 23 Días','feat-ml':'Mercados','feat-syn':'Un terror que habita los espacios entre la creencia y el miedo. Rodado en doce locaciones del Paraguay, Maldecidos es la producción más ambiciosa de Urban Achievers hasta la fecha — posicionada para festivales internacionales y distribución de género.','feat-date':'▶ Inicio de Rodaje: 13 de Julio 2026','slate-h1':'Obras','slate-h2':'Completadas','slate-ct':'4 Películas · 2017–2025','f1-tag':'Candidatura al Óscar · Paraguay','f1-role':'Productor Ejecutivo','f2-role':'Asesor Financiero','f3-tag':'Cannes · Busan · Internacional','f3-role':'Productor / Productor Ejecutivo','f4-tag':'Antología de Terror · 2025','f4-role':'Productor / Productor Ejecutivo','dev-h1':'En','dev-h2':'Desarrollo','dev-ct':'9 Proyectos + Contenido Vertical','dev-feat':'Largometraje','gen-com':'Comedia','gen-dra':'Drama','gen-fan':'Fantasía · Comedia','dev-mal':'Thriller sobrenatural. Rodaje: 13 de julio de 2026. Producción de 23 días en 12 locaciones.','dev-inf':'El ascenso accidental de un fenómeno improbable de las redes sociales en el Paraguay contemporáneo.','dev-mam':'Drama de crecimiento. Una historia sobre permisos, rebeldía y el precio de crecer.','dev-cur':'Una historia que transcurre entre fronteras, entre ciudades, entre identidades.','dev-ali':'Un descenso impulsado por los personajes hacia el miedo y las consecuencias.','dev-cra':'Donde la ambición se encuentra con lo absurdo en un mundo que juega con sus propias reglas.','doc-lbl':'Documental','doc1':'Largometraje documental. Título por confirmar.','doc2':'La música y las vidas de la comunidad de Cateura.','doc3':'Una historia más extraña que la ficción desde el corazón de Sudamérica.','vert-lbl':'Contenido Vertical y Micro-Drama','vert-desc':'Un catálogo activo de contenido narrativo de formato corto y vertical para plataformas digitales.','inquire':'Consultar →','mis-h':'Construidos por el <span>Cine</span>','mis-case':'Declaración · UA-992-B','mis-q':'"Los medios necesarios — y las personas que saben exactamente lo que eso implica."','mp1':'Si conoces <em>El Gran Lebowski</em>, ya sabes adónde va esto. En la película de los hermanos Coen de 1998, los "Little Lebowski Urban Achievers" son jóvenes de promesa sin los medios necesarios para acceder a la educación superior. En la película, es en gran medida una fachada. Nosotros no.','mp2':"Urban Achievers S.A. nació de una conversación entre padre e hijo para quienes esa película no es solo una favorita, sino un lenguaje compartido — y para quienes el cine no es un pasatiempo sino una obsesión de toda la vida. Desarrollamos historias, producimos películas y permanecemos en la sala desde el primer borrador hasta el corte final. Esto no es un fondo. Es una productora construida por personas que aman el cine como otros aman respirar.",'mp3':"Además, aportamos algo poco común en esta industria: décadas de experiencia en mercados de capitales, estructuración financiera y desarrollo empresarial. Entendemos cada etapa — desarrollo, financiamiento, producción, exhibición y ventas — y aplicamos esa disciplina sin disculpas. Contamos con el respaldo de profesionales destacados en finanzas, banca, derecho, contabilidad y cumplimiento normativo. No somos soñadores. Somos profesionales serios con una obsesión genuina por el gran cine.",'mp4':'Y donde podemos, incorporamos talento emergente al proceso — no como caridad, sino como colaboradores. El talento no escasea en esta región. El acceso sí.','s1':'Años en Producción','s2':'Largometrajes Completados','s3':'Socio Coproductor','s4':'Mercados Principales','team-h':'Achievers','team-sub':'Directivos y Colaboradores','rrd-role':'Presidente · Productor','rrd-bio':'Productor cinematográfico y ejecutivo de mercados de capitales. Créditos en coproducciones internacionales con HBO y Sony Pictures, con presencia en Sitges y Cannes. Conductor de Inteligencia Financiera y socio fundador de Urban Achievers S.A.','grd-role':'Director · Productor','grd-bio':"Director y productor especializado en cine de género y desarrollo narrativo. Lidera la producción creativa en Urban Achievers, impulsando el catálogo en expansión en terror, drama, comedia y documental.",'crew-lbl':'Colaboradores Frecuentes','cr-dir':'Director','cr-col':'Colaborador','sup-lbl':'Apoyo Profesional','sup-txt':'Urban Achievers cuenta con el respaldo de una red de profesionales destacados en asesoría financiera, banca de inversión, contabilidad, derecho, cumplimiento normativo y gobierno corporativo — el mismo nivel de expertise que sustenta cualquier operación institucional seria. Por diseño, una empresa 360 grados.','con-h':'Contacto <span>y Boletín</span>','con-lbl':'Ponte en Contacto','con-h1':'Contác-','con-h2':'tanos','con-desc':'Preguntas, propuestas de coproducción, consultas de prensa. Leemos todo.','f-name':'Nombre','f-email':'Correo','f-msg':'Mensaje','f-send':'Enviar Mensaje →','ph-name':'Tu nombre','ph-msg':'¿Cómo podemos ayudarte?','find-us':'Encuéntranos','sub-lbl':'El Boletín','sub-h1':'Mantente','sub-h2':'Informado','sub-desc':'Novedades del catálogo, resultados en festivales y nuevas producciones — directo a tu correo. Sin ruido.','sub-con':'Acepto recibir actualizaciones ocasionales de Urban Achievers S.A. Sin spam, nunca.','sub-btn':'Suscribirse →','ft-copy':'© 2026 · Asunción, Paraguay · Todos los Derechos Reservados'}
+};
 let lang='en';
 function toggleLang(){
-    lang=lang==='en'?'es':'en';
-    document.getElementById('langBtn').textContent=lang==='en'?'ES':'EN';
-    document.documentElement.lang=lang;
-    document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.getAttribute('data-i18n');if(t[lang][k]!==undefined)el.innerHTML=t[lang][k];});
-    document.querySelectorAll('[data-i18n-ph]').forEach(el=>{const k=el.getAttribute('data-i18n-ph');if(t[lang][k]!==undefined)el.placeholder=t[lang][k];});
+  lang=lang==='en'?'es':'en';
+  document.getElementById('langBtn').textContent=lang==='en'?'ES':'EN';
+  document.documentElement.lang=lang;
+  document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.getAttribute('data-i18n');if(T[lang][k]!==undefined)el.innerHTML=T[lang][k];});
+  document.querySelectorAll('[data-i18n-ph]').forEach(el=>{const k=el.getAttribute('data-i18n-ph');if(T[lang][k]!==undefined)el.placeholder=T[lang][k];});
 }
 </script>
 </body>
