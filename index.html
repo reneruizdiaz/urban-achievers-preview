@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Influencer por Accidente — Propuesta de Patrocinio</title>
+<title>Influencer por Accidente &mdash; Propuesta de Patrocinio</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/bangers@5/index.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/montserrat@5/400.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/montserrat@5/700.css">
@@ -47,22 +47,22 @@ body{background:#111;display:flex;flex-direction:column;align-items:center;justi
 .img-frame{border-radius:10px;overflow:hidden;border:1px solid rgba(255,215,0,.15);}
 .img-frame img{width:100%;height:180px;object-fit:cover;display:block;}
 
-/* S3 por qué */
+/* S3 por que */
 .pgrid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:8px;position:relative;}
 .pcard{background:rgba(255,255,255,.04);border:1px solid rgba(255,215,0,.12);border-radius:8px;padding:20px;}
 .pnum{font-family:'Bangers',cursive;font-size:36px;color:var(--ro);line-height:1;margin-bottom:8px;}
 .ptitle{font-size:11px;font-weight:700;color:var(--am);letter-spacing:1px;text-transform:uppercase;margin-bottom:8px;}
 .ptext{font-size:12px;color:rgba(245,245,245,.7);line-height:1.6;}
 
-/* S4 alcance */
+/* S4 alcance — tabla mejorada */
 .s4-layout{display:grid;grid-template-columns:1fr 1fr;gap:24px;width:100%;position:relative;}
 .rtable{width:100%;border-collapse:collapse;}
 .rtable th{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--am);opacity:.6;text-align:left;padding:0 0 10px 0;border-bottom:1px solid rgba(255,215,0,.2);font-weight:700;}
 .rtable th:not(:first-child){text-align:right;}
 .rtable td{padding:8px 0;font-size:13px;color:var(--bl);border-bottom:1px solid rgba(255,255,255,.06);}
 .rtable td:not(:first-child){text-align:right;}
-.rn{color:var(--am)!important;font-weight:700;font-family:'Bangers',cursive;font-size:18px!important;letter-spacing:1px;display:block;}
-.rn-fb{color:#6aaee8!important;font-weight:700;font-family:'Bangers',cursive;font-size:18px!important;letter-spacing:1px;display:block;}
+.rn{color:var(--am);font-weight:700;font-family:'Bangers',cursive;font-size:18px;letter-spacing:1px;display:block;}
+.rn-fb{color:#6aaee8;font-weight:700;font-family:'Bangers',cursive;font-size:18px;letter-spacing:1px;display:block;}
 .rtag{font-size:9px;color:rgba(245,245,245,.35);display:block;margin-top:1px;}
 .rname{font-size:12px;font-weight:600;color:var(--bl);}
 .totals-row{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:12px;}
@@ -152,13 +152,15 @@ body{background:#111;display:flex;flex-direction:column;align-items:center;justi
 .crow .ibox{width:28px;height:28px;background:rgba(204,0,0,.15);border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:12px;}
 .crow span{font-size:12px;color:rgba(245,245,245,.6);}
 
-/* nav */
+/* NAV — contador con fuente legible, no Bangers */
 #nb{background:rgba(0,0,0,.35);border-top:1px solid rgba(255,215,0,.1);padding:14px 56px;display:flex;align-items:center;justify-content:space-between;}
 .nbtn{background:rgba(255,215,0,.08);border:1px solid rgba(255,215,0,.2);color:var(--am);font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:9px 22px;border-radius:4px;cursor:pointer;transition:background .15s;}
 .nbtn:hover{background:rgba(255,215,0,.18);}
 .nbtn:disabled{opacity:.2;cursor:default;}
-.sctr{font-family:'Bangers',cursive;font-size:18px;color:rgba(255,215,0,.4);letter-spacing:2px;}
-.sctr span{color:var(--am);}
+.slide-counter{display:flex;align-items:center;gap:6px;font-family:'Montserrat',sans-serif;font-size:13px;font-weight:700;font-variant-numeric:tabular-nums;letter-spacing:1px;}
+.slide-counter .cur{color:var(--am);font-size:18px;}
+.slide-counter .sep{color:rgba(255,215,0,.3);font-size:14px;}
+.slide-counter .tot{color:rgba(255,215,0,.4);font-size:13px;}
 .dnav{display:flex;gap:6px;align-items:center;}
 .ddot{width:6px;height:6px;border-radius:50%;background:rgba(255,215,0,.2);cursor:pointer;transition:all .15s;}
 .ddot.active{background:var(--am);width:18px;border-radius:3px;}
@@ -176,11 +178,7 @@ body{background:#111;display:flex;flex-direction:column;align-items:center;justi
         <div class="mtitle">INFLUENCER<br><span class="xmark">&#10005;</span>ACCIDENTE</div>
         <div class="tagline">Del Streaming al Extremo</div>
         <div class="rbar"></div>
-        <div class="pcredits">
-          Director: Samuel Cardozo<br>
-          Productor: Ren&#233; Ruiz D&#237;az<br>
-          Productora: Urban Achievers S.A.
-        </div>
+        <div class="pcredits">Director: Samuel Cardozo<br>Productor: Ren&#233; Ruiz D&#237;az<br>Productora: Urban Achievers S.A.</div>
       </div>
       <div class="pright">
         <div class="plabel">El Proyecto</div>
@@ -243,54 +241,14 @@ body{background:#111;display:flex;flex-direction:column;align-items:center;justi
         <table class="rtable">
           <thead><tr><th>Nombre</th><th>IG</th><th>TT</th><th>FB</th></tr></thead>
           <tbody>
-            <tr>
-              <td><span class="rname">Juan R&#237;os</span><span class="rtag">Lataparara</span></td>
-              <td><span class="rn">1.2M</span></td>
-              <td><span class="rn">1.8M</span></td>
-              <td><span class="rn-fb">723K</span></td>
-            </tr>
-            <tr>
-              <td><span class="rname">Kasim Handouss</span></td>
-              <td><span class="rn">400K</span></td>
-              <td><span class="rn">504K</span></td>
-              <td style="color:rgba(245,245,245,.25);font-size:16px;text-align:right;">&#8212;</td>
-            </tr>
-            <tr>
-              <td><span class="rname">Paola Maltese</span></td>
-              <td><span class="rn">574K</span></td>
-              <td><span class="rn">7.5K</span></td>
-              <td><span class="rn-fb">34K</span></td>
-            </tr>
-            <tr>
-              <td><span class="rname">Lali Gonz&#225;lez</span></td>
-              <td><span class="rn">484K</span></td>
-              <td style="color:rgba(245,245,245,.25);font-size:16px;text-align:right;">&#8212;</td>
-              <td><span class="rn-fb">165K</span></td>
-            </tr>
-            <tr>
-              <td><span class="rname">Lautaro del Campo</span><span class="rtag">La Cobra</span></td>
-              <td><span class="rn">1.2M</span></td>
-              <td><span class="rn">4.6M</span></td>
-              <td><span class="rn-fb">197K</span></td>
-            </tr>
-            <tr>
-              <td><span class="rname">Ariel Delgadillo</span></td>
-              <td><span class="rn">486K</span></td>
-              <td><span class="rn">1.1M</span></td>
-              <td><span class="rn-fb">145K</span></td>
-            </tr>
-            <tr>
-              <td><span class="rname">Jennyfer Santos</span><span class="rtag">ChennyTV</span></td>
-              <td><span class="rn">564K</span></td>
-              <td><span class="rn">886K</span></td>
-              <td><span class="rn-fb">569K</span></td>
-            </tr>
-            <tr>
-              <td><span class="rname">Diego Vera</span></td>
-              <td><span class="rn">329K</span></td>
-              <td><span class="rn">615K</span></td>
-              <td><span class="rn-fb">19K</span></td>
-            </tr>
+            <tr><td><span class="rname">Juan R&#237;os</span><span class="rtag">Lataparara</span></td><td><span class="rn">1.2M</span></td><td><span class="rn">1.8M</span></td><td><span class="rn-fb">723K</span></td></tr>
+            <tr><td><span class="rname">Kasim Handouss</span></td><td><span class="rn">400K</span></td><td><span class="rn">504K</span></td><td style="text-align:right;color:rgba(245,245,245,.25);font-size:16px;">&#8212;</td></tr>
+            <tr><td><span class="rname">Paola Maltese</span></td><td><span class="rn">574K</span></td><td><span class="rn">7.5K</span></td><td><span class="rn-fb">34K</span></td></tr>
+            <tr><td><span class="rname">Lali Gonz&#225;lez</span></td><td><span class="rn">484K</span></td><td style="text-align:right;color:rgba(245,245,245,.25);font-size:16px;">&#8212;</td><td><span class="rn-fb">165K</span></td></tr>
+            <tr><td><span class="rname">Lautaro del Campo</span><span class="rtag">La Cobra</span></td><td><span class="rn">1.2M</span></td><td><span class="rn">4.6M</span></td><td><span class="rn-fb">197K</span></td></tr>
+            <tr><td><span class="rname">Ariel Delgadillo</span></td><td><span class="rn">486K</span></td><td><span class="rn">1.1M</span></td><td><span class="rn-fb">145K</span></td></tr>
+            <tr><td><span class="rname">Jennyfer Santos</span><span class="rtag">ChennyTV</span></td><td><span class="rn">564K</span></td><td><span class="rn">886K</span></td><td><span class="rn-fb">569K</span></td></tr>
+            <tr><td><span class="rname">Diego Vera</span></td><td><span class="rn">329K</span></td><td><span class="rn">615K</span></td><td><span class="rn-fb">19K</span></td></tr>
           </tbody>
         </table>
         <div class="totals-row">
@@ -311,15 +269,11 @@ body{background:#111;display:flex;flex-direction:column;align-items:center;justi
     <div class="stitle">QUI&#201;NES SOMOS</div>
     <div class="rbar"></div>
     <div class="egrid">
-
-      <!-- Samuel primero -->
       <div class="ecard featured">
         <div class="erole">Director y Escritor</div>
         <div class="ename">Samuel Cardozo</div>
         <div class="edesc">Autor de la idea original. Director y productor de contenido de las principales figuras de content creation de Paraguay.</div>
       </div>
-
-      <!-- Rene debajo -->
       <div class="ecard featured">
         <div class="erole">Productor</div>
         <div class="ename">Ren&#233; Ruiz D&#237;az</div>
@@ -332,14 +286,11 @@ body{background:#111;display:flex;flex-direction:column;align-items:center;justi
           <a class="fpill" href="https://youtu.be/f7gO_bvJ61E" target="_blank">&#9654; Red Book Ritual: Gates of Hell</a>
         </div>
       </div>
-
-      <!-- Elenco -->
       <div class="ecard">
         <div class="erole">Elenco Principal Confirmado</div>
         <div class="ename">8 integrantes</div>
         <div class="edesc">Juan R&#237;os, Kasim Handouss, Paola Maltese, Lali Gonz&#225;lez, Lautaro del Campo, Ariel Delgadillo, Jennyfer Santos y Diego Vera.</div>
       </div>
-
     </div>
   </div>
 
@@ -455,7 +406,7 @@ body{background:#111;display:flex;flex-direction:column;align-items:center;justi
         <div class="crole">Productor</div>
         <div class="cco">Urban Achievers S.A. &#183; Influencer por Accidente</div>
         <div class="cfield">
-          <div class="crow"><div class="ibox">&#9993;</div><span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="c2b0a7aca782b7b0a0a3aca4abaeafb1eca1adafecb2bb">[email&#160;protected]</a></span></div>
+          <div class="crow"><div class="ibox">&#9993;</div><span>rene&#64;urbanfilms&#46;com&#46;py</span></div>
           <div class="crow"><div class="ibox">&#9742;</div><span>+595 984 316091</span></div>
         </div>
       </div>
@@ -463,17 +414,54 @@ body{background:#111;display:flex;flex-direction:column;align-items:center;justi
   </div>
 
   <div id="nb">
-    <button class="nbtn" id="bp" onclick="cs(-1)" disabled>&#8592; Anterior</button>
-    <div style="display:flex;align-items:center;gap:16px;">
+    <button class="nbtn" id="bp" onclick="changeSlide(-1)" disabled>&#8592; Anterior</button>
+    <div style="display:flex;align-items:center;gap:20px;">
       <div class="dnav" id="dots"></div>
-      <div class="sctr"><span id="cn">1</span> / 9</div>
+      <div class="slide-counter">
+        <span class="cur" id="cur-num">01</span>
+        <span class="sep">/</span>
+        <span class="tot">09</span>
+      </div>
     </div>
-    <button class="nbtn" id="bn" onclick="cs(1)">Siguiente &#8594;</button>
+    <button class="nbtn" id="bn" onclick="changeSlide(1)">Siguiente &#8594;</button>
   </div>
 </div>
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-let c=0;
-const sl=document.querySelectorAll('.slide');
-const de=document.getElementById('dots');
-sl.forEach((_,i)=>{const d=document.createElement('div');d.className='ddot'+(i===0?' active':'');d.onclick=()=>gt(i);de.appendChild(d);});
-function gt(n){sl[c].classList.remove('active');de.children[c].classList.remove('active');c=n;sl[c].classList.add('active');de.c
+
+<script>
+var cur = 0;
+var slides = document.querySelectorAll('.slide');
+var dotsEl = document.getElementById('dots');
+var curNum = document.getElementById('cur-num');
+var btnPrev = document.getElementById('bp');
+var btnNext = document.getElementById('bn');
+
+for (var i = 0; i < slides.length; i++) {
+  var d = document.createElement('div');
+  d.className = 'ddot' + (i === 0 ? ' active' : '');
+  d.setAttribute('data-idx', i);
+  d.addEventListener('click', function() {
+    goTo(parseInt(this.getAttribute('data-idx')));
+  });
+  dotsEl.appendChild(d);
+}
+
+function goTo(n) {
+  slides[cur].classList.remove('active');
+  dotsEl.children[cur].classList.remove('active');
+  cur = n;
+  slides[cur].classList.add('active');
+  dotsEl.children[cur].classList.add('active');
+  curNum.textContent = (cur + 1 < 10 ? '0' : '') + (cur + 1);
+  btnPrev.disabled = (cur === 0);
+  btnNext.disabled = (cur === slides.length - 1);
+}
+
+function changeSlide(dir) {
+  var next = cur + dir;
+  if (next >= 0 && next < slides.length) {
+    goTo(next);
+  }
+}
+</script>
+</body>
+</html>
