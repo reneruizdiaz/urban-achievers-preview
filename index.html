@@ -606,46 +606,80 @@ document.addEventListener('DOMContentLoaded',()=>{
 });
 </script>
 
-<!-- ♪ MUSIC PLAYER (hidden iframe) -->
-  <div id="yt-iframe-wrap" style="display:none;width:0;height:0;overflow:hidden;position:fixed;">
-    <iframe id="yt-iframe" width="1" height="1"
-      src="https://www.youtube.com/embed/qiwSDUm7X0c?enablejsapi=1&autoplay=1&loop=1&playlist=qiwSDUm7X0c&mute=1&controls=0&rel=0"
-      frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-  </div>
+<!-- ♪ MUSIC PLAYER -->
+<div id="yt-iframe-wrap" style="position:fixed;left:-9999px;top:-9999px;width:1px;height:1px;overflow:hidden;">
+  <iframe id="yt-iframe" width="1" height="1"
+    src="https://www.youtube.com/embed/qiwSDUm7X0c?enablejsapi=1&autoplay=1&mute=1&loop=1&playlist=qiwSDUm7X0c&controls=0&rel=0&playsinline=1"
+    frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+</div>
 
 <script>
 var uaPlayer=null, uaMuted=true, uaPlaying=false;
+
 function onYouTubeIframeAPIReady(){
-  uaPlayer=new YT.Player('yt-iframe',{
+  uaPlayer = new YT.Player('yt-iframe',{
     events:{
-      'onReady':function(e){
-        document.getElementById('yt-iframe-wrap').style.display='block';
-        e.target.unMute();
-        e.target.setVolume(60);
+      'onReady': function(e){
+        e.target.setVolume(70);
         e.target.playVideo();
-        uaMuted=false; uaPlaying=true;
-        document.getElementById('yt-state').textContent='▐▐';
+        uaPlaying = true;
+        uaMuted = true;
+        updateBtn();
+      },
+      'onStateChange': function(e){
+        uaPlaying = (e.data === YT.PlayerState.PLAYING);
+        updateBtn();
       }
     }
   });
 }
+
+function updateBtn(){
+  var icon = document.getElementById('yt-icon');
+  var state = document.getElementById('yt-state');
+  if(!icon) return;
+  if(!uaPlaying){
+    icon.textContent = '♪';
+    icon.style.opacity = '.35';
+    state.textContent = '▶';
+  } else if(uaMuted){
+    icon.textContent = '♪';
+    icon.style.opacity = '1';
+    state.textContent = '🔇';
+  } else {
+    icon.textContent = '♪';
+    icon.style.opacity = '1';
+    state.textContent = '▐▐';
+  }
+}
+
 function uaToggleMusic(){
   if(!uaPlayer) return;
   if(uaMuted){
-    uaPlayer.unMute(); uaMuted=false;
-    if(!uaPlaying){uaPlayer.playVideo();uaPlaying=true;}
-    document.getElementById('yt-state').textContent='▐▐';
-    document.getElementById('yt-icon').style.opacity='1';
+    // First click: unmute
+    uaPlayer.unMute();
+    uaMuted = false;
+    if(!uaPlaying){ uaPlayer.playVideo(); uaPlaying = true; }
   } else if(uaPlaying){
-    uaPlayer.pauseVideo(); uaPlaying=false;
-    document.getElementById('yt-state').textContent='▶';
-    document.getElementById('yt-icon').style.opacity='.4';
+    uaPlayer.pauseVideo();
+    uaPlaying = false;
   } else {
-    uaPlayer.playVideo(); uaPlaying=true;
-    document.getElementById('yt-state').textContent='▐▐';
-    document.getElementById('yt-icon').style.opacity='1';
+    uaPlayer.playVideo();
+    uaPlaying = true;
   }
+  updateBtn();
 }
+
+// Unmute on first interaction anywhere on page
+document.addEventListener('click', function uaFirstClick(e){
+  if(uaPlayer && uaMuted){
+    uaPlayer.unMute();
+    uaMuted = false;
+    if(!uaPlaying){ uaPlayer.playVideo(); uaPlaying = true; }
+    updateBtn();
+  }
+  document.removeEventListener('click', uaFirstClick);
+}, {capture: true, once: true});
 </script>
 <script src="https://www.youtube.com/iframe_api"></script>
 </body>
